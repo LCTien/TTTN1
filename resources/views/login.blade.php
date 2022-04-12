@@ -32,7 +32,7 @@
         <p class="system-title">Hệ Thống</div>
         <span class="system-name">Quản Lý Xếp Hàng</span>
     </div>
-   @if ($OK))
+   @if (isset($OK)))
     <script>
         alert('Congratulations on a successful password change');
        </script>
