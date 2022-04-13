@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-    <div class="login">
+    
        <img src="/assets/img/LogoAltaMedia.png" alt="logo" class="logo">
            <p class="forget-password">Đặt lại mật khẩu mới</p>
            <form action="{{ route('confirm.forgetpassword') }}" class="form" method="post">
@@ -11,8 +11,9 @@
             <input type="password" name="confirmpassword"  class="form-control"><br>
             <button type="submit" class="submit" id="button-login"> <span> Xác Nhận</span></button>
            </form>
-    </div>
+    
     <div class="title">
         <img src="/assets/img/background2.png" alt="background" class="background2">
     </div>
+
 @endsection

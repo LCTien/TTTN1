@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('content')
-    <div class="login">
+    
        <img src="assets/img/LogoAltaMedia.png" alt="logo" class="logo">
         <form action="{{ route('welcome') }}" method="post" class="form">
             @csrf
@@ -26,7 +26,7 @@
             <a href="{{ route('forgetpassword') }}" id="forgetpassword-error" >  Quên mật khẩu?</a></div>
             @endif
         </form>
-    </div>
+   
     <div class="title">
         <img src="assets/img/background1.png" alt="background" class="background">
         <p class="system-title">Hệ Thống</div>

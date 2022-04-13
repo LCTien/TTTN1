@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.login{
+body{
     position: relative;
     width: 1440px;
     height: 810px;
@@ -289,6 +289,7 @@ border-radius: 8px;
 a{
     font-family: 'Nunito';
     font-style: normal;
+    text-decoration: none;
 }
 .denie-button:hover{
     color: white;
@@ -319,4 +320,256 @@ a{
     color: #FF9138;
     background-color: white;
     border:0.5px solid #FF9138;
+}
+
+nav{
+position: relative;
+width: 200px;
+height: 810px;
+left: 0px;
+top: 0px;
+
+/* White */
+
+background: #FFFFFF;
+/* Dropdown */
+
+box-shadow: 0px 4px 6px rgba(219, 219, 219, 0.5);
+border-radius: 16px 0px 0px 16px;
+}
+.logo{
+    position: absolute;
+    width: 130px;
+    left: 15%;
+    right: 0%;
+    top: 0%;
+    bottom: 16.97%;
+}
+.nav-item{
+   
+    padding-top: 12px;
+    padding-left: 25px;
+    position: relative;
+    width: 200px;
+    height: 48px;
+    left: 0px;
+    top: 150px;
+    float: left;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7E7D88;
+/* White */
+
+background: #FFFFFF;
+}
+.nav-item i{
+    font-size: 22px;
+    padding-top: 1.5px;
+    
+}
+.nav-item p{
+    padding-left: 30px;
+}
+.nav-item a{
+    color: #7E7D88;
+}
+.nav-item a:hover{
+    color: #fff;
+}
+.nav-item:hover{
+    color: #fff;
+    background-color: #FF9138;
+}
+.content{
+
+position: absolute;
+width: 1112px;
+height: 397px;
+left: 224px;
+top: 168px;
+
+/* White */
+
+background: #FFFFFF;
+box-shadow: 0px 2px 6px rgba(219, 219, 219, 0.5);
+border-radius: 12px;
+}
+.title{
+position: absolute;
+width: 168px;
+height: 30px;
+left: 224px;
+top: 5px;
+/* 20/20 Bold */
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+background: transparent;
+/* identical to box height, or 150% */
+/* Orange/$-Orange-400 */
+color: #FF9138;
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+}
+.logout{
+
+
+align-items: center;
+padding: 12px;
+position: absolute;
+width: 176px;
+height: 48px;
+left: 12px;
+top: 600px;
+/* Orange/$-Orange-50 */
+background: #FFF2E7;
+color: #FF9138;
+border-radius: 8px;
+padding-left: 30px;
+}
+.logout i{
+    position: relative;
+    padding-right: 20px;
+}
+.logout:hover{
+    color: #fff;
+    background: #FF9138;
+}
+.anoun-bell{
+   
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    right: 310px;
+    top: 5px;
+    padding: 8px 0 0 9px;
+    color: #FF9138;
+/* Orange/$-Orange-50 */
+
+background: #FFF2E7;
+border-radius: 32px;
+}
+.anoun-bell:hover{
+    border: 0.5px solid #FF9138;
+    background: #f7f7f7;
+}
+.img-profile{
+position: absolute;
+width: 40px;
+height: 40px;
+right:260px;
+top: 0px;
+border-radius: 48px;
+}
+.title-2{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    right: 150px;
+    top: 0px;
+   
+/* 12/12 Reg */
+}
+.title-2 p{
+    position: relative;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+/* Gray/$-gray-300 */
+color: #7E7D88;
+/* 12/12 Reg */
+}
+.profile-1{
+    position: relative;
+    float: left;
+    
+    width: 27%;
+    height: 397px;
+}
+.profile-1 img{
+    position: absolute;
+width: 248px;
+height: 248px;
+left: 24px;
+top: 40px;
+border-radius: 318px;
+}
+.profile-1.set-avatar
+{
+position: absolute;
+width: 45px;
+height: 45px;
+left: 195px;
+top: 246px;
+/* Orange/$-Orange-500 */
+background: #FF7506;
+/* White */
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 50%;
+
+}
+.profile-1.set-avatar i
+{
+    background: transparent;
+    color: #FF9138;
+    font-size: 30px;
+    padding: 4px 0 0 5px;
+}
+.profile-1 h1{
+position: absolute;
+width: 186px;
+height: 36px;
+left: 55px;
+top: 307px;
+}
+.profile-2{
+    position: relative;
+    float: left;
+    
+    width: 73%;
+    height: 397px;
+    padding-top: 40px;
+    padding-bottom: 55px;
+}
+.profile-2-item{
+    position: relative;
+    float: left;
+   
+    width: 50%;
+    height: 30%;
+    
+}
+
+.profile-2-item h4{
+    position: relative;
+}
+.profile-2-item p{
+   display: flex;
+flex-direction: row;
+align-items: center;
+padding: 12px 16px;
+
+position: absolute;
+width: 384px;
+height: 44px;
+color: #535261;
+
+opacity: 0.5;
+
+/* Gray/$-gray-50 */
+
+background: #EAEAEC;
+border-radius: 6px;
 }

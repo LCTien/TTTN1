@@ -30,6 +30,8 @@ Route::post('welcome',function(Request $request){
     {
          return redirect()->route('login',['error' => "Sai tài khoản hoặc mật khẩu"]);
     }
-    return view('welcome');
+    return view('dashboard');
 })->name('welcome');
-
+Route::get('/admin-info', function () {
+    return view('admin-info');
+})->name('admin.info');
