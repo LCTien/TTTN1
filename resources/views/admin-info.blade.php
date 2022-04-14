@@ -1,23 +1,7 @@
 @extends('layout.layout')
+@extends('layout.navbar')
 @section('content')
-    <nav>
-        <img src="/assets/img/LogoAltaMedia.png" alt="logo" class="logo">
-        <a href="#" class="nav-item"> <i class="fab fa-codepen"></i> <p>Dashboard</p></a>
-        <a href="#" class="nav-item"> <i class="fas fa-desktop"></i> <p>Thiết bị</p></a>
-        <a href="#" class="nav-item"> <i class="far fa-comment-dots"></i> <p>Dịch vụ</p></a>   
-        <a href="#" class="nav-item"> <i class="fas fa-database"></i> <p>Cấp số</p></a>
-        <a href="#" class="nav-item"> <i class="fas fa-chart-line"></i> <p>Báo cáo</p></a>
-        <a href="#" class="nav-item"> <i class="material-icons">settings</i> <p>Cài đặt hệ thống</p></a>
-        <a href="#" class="logout"> <i class="fas fa-sign-out-alt"></i> Đăng Xuất</a>
-    </nav>
-
-    <div class="title"><p>Thông tin cá nhân</p></div>
-    <a  class="anoun-bell" href="#"><i class="fas fa-bell"></i></a>
-    <img class ="img-profile" src="/assets/img/lecongtien.jpg" alt="">
-    <div class="title-2">
-        <p>Xin Chào</p>
-        <h4>Lê Công Tiến</h4>
-    </div>
+<div class="admin-title"><p>Thông tin cá nhân</p></div>
     <div class="content">
         <div class="profile-1">
             <img src="/assets/img/lecongtien.jpg" alt="avatar">

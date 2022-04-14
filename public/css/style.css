@@ -122,7 +122,7 @@ margin: 0px 8px;
     border: 1.5px solid red;
 }
 
- .title{
+.title{
     position: absolute;
     width: 848px;
     height: 810px;
@@ -337,7 +337,7 @@ background: #FFFFFF;
 box-shadow: 0px 4px 6px rgba(219, 219, 219, 0.5);
 border-radius: 16px 0px 0px 16px;
 }
-.logo{
+.dashboard-logo{
     position: absolute;
     width: 130px;
     left: 15%;
@@ -397,7 +397,7 @@ background: #FFFFFF;
 box-shadow: 0px 2px 6px rgba(219, 219, 219, 0.5);
 border-radius: 12px;
 }
-.title{
+.admin-title{
 position: absolute;
 width: 168px;
 height: 30px;
@@ -420,8 +420,6 @@ flex-grow: 0;
 margin: 0px 8px;
 }
 .logout{
-
-
 align-items: center;
 padding: 12px;
 position: absolute;
@@ -458,9 +456,113 @@ background: #FFF2E7;
 border-radius: 32px;
 }
 .anoun-bell:hover{
-    border: 0.5px solid #FF9138;
-    background: #f7f7f7;
+    background-color: #FF9138;
+    background: #FFFFFF;
 }
+
+.dropbox{
+display:none;
+position: absolute;
+width: 360px;
+height: 526px;
+
+right: 0;
+top: 32px;
+z-index: 4;
+/* White */
+background: #FFFFFF;
+/* Pink shadow */
+box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+border-radius: 10px 10px 0 0;
+}
+.dropbox.content{
+padding-top: 9px;
+padding-left: 24px;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+color: #FFFFFF;
+
+position: relative;
+width: 100%;
+height: 48px;
+left: 0px;
+top: 0px;
+/* Orange/$-Orange-400 */
+background: #FF9138;
+}
+.anoun-bell:hover .dropbox
+{
+    display: block;
+    z-index: 4;
+}
+.dropbox.item{
+    position: relative;
+    width: 100%;
+    height: 482px;
+    overflow-y: scroll;
+    scrollbar-color: #FF9138;
+    left: 0px;
+    top: 0px;
+ 
+}
+.dropbox.item.items{
+    border: none;
+    height: 80px;
+  
+}
+.dropbox.item.items p{
+position: absolute;
+width: 268px;
+height: 24px;
+left: 24px;
+top: 16px;
+/* 16/16 Bold */
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+/* Orange/$-Orange-600 */
+color: #BF5805;
+}
+.dropbox.item.items:hover{
+    background: #FFF2E7;
+}
+.dropbox.item.items hr{
+    position: absolute;
+    height: 0px;
+    left: 5.16%;
+    right: 6.02%;
+    bottom: 0px;
+    opacity: 0.6;
+    color: #D4D4D7;
+    ;
+    /* Gray/$-gray-100 */
+    }
+.dropbox.item.items span{
+    position: absolute;
+    width: 313px;
+    height: 24px;
+    left: 24px;
+    top: 44px;
+    /* 16/16 Reg */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    
+    
+    /* Gray/$-gray-400 Text */
+    
+    color: #535261;
+    
+    }
 .img-profile{
 position: absolute;
 width: 40px;
@@ -469,6 +571,20 @@ right:260px;
 top: 0px;
 border-radius: 48px;
 }
+
+::-webkit-scrollbar {
+   
+    width: 4px;
+    height: auto;
+
+  }
+  
+::-webkit-scrollbar-thumb {
+    
+    border-radius: 2px;
+    background-color: #FF9138;
+  }
+  
 .title-2{
     position: absolute;
     width: 100px;
@@ -490,6 +606,25 @@ line-height: 18px;
 color: #7E7D88;
 /* 12/12 Reg */
 }
+.title-2 a{
+    position: absolute;
+width: 124px;
+height: 24px;
+top: 18px;
+/* 16/16 Bold */
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+
+/* Gray/$-gray-400 Text */
+
+color: #535261;
+
+}
 .profile-1{
     position: relative;
     float: left;
@@ -498,7 +633,7 @@ color: #7E7D88;
     height: 397px;
 }
 .profile-1 img{
-    position: absolute;
+position: absolute;
 width: 248px;
 height: 248px;
 left: 24px;

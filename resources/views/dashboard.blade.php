@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@extends('layout.navbar')
 @section('content')
-    Welcome Tiến
+<div class="admin-title">Dashboard</div>
 @endsection
