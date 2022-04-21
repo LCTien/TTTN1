@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @extends('layout.navbar')
 @section('content')
-<div class="admin-title">Dashboard</div>
-<p class="chart-title">Biểu đồ cấp số</p>
+<div class="main-title action">Dashboard</div>
+<p class="component-title">Biểu đồ cấp số</p>
 <div class="chart-box">
    <div class="tiny-chart">
        <div class="icon-fluid water bg-water"><i class="far fa-calendar"></i></div>

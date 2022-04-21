@@ -38,3 +38,6 @@ Route::get('/admin-info', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/equipment', function () {
+    return view('equipment');
+})->name('equipment');

@@ -1,7 +1,7 @@
 <nav>
     <img src="/assets/img/LogoAltaMedia.png" alt="logo" class="dashboard-logo">
     <a href="{{ route('dashboard') }}" class="nav-item active"><i class="material-icons">dashboard</i> <p>Dashboard</p></a>
-    <a href="#" class="nav-item"> <i class="material-icons">desktop_windows</i> <p>Thiết bị</p></a>
+    <a href="{{ route('equipment') }}" class="nav-item"> <i class="material-icons">desktop_windows</i> <p>Thiết bị</p></a>
     <a href="#" class="nav-item"> <i class="material-icons">question_answer</i> <p>Dịch vụ</p></a>   
     <a href="#" class="nav-item"> <i class="fas fa-layer-group"></i> <p>Cấp số</p></a>
     <a href="#" class="nav-item"> <i class="fas fa-chart-bar"></i> <p>Báo cáo</p></a>

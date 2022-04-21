@@ -396,9 +396,9 @@ background: #FFFFFF;
 box-shadow: 0px 2px 6px rgba(219, 219, 219, 0.5);
 border-radius: 12px;
 }
-.admin-title{
+.main-title{
 position: absolute;
-width: 168px;
+width: 800px;;
 height: 30px;
 left: 224px;
 top: 5px;
@@ -411,12 +411,14 @@ line-height: 30px;
 background: transparent;
 /* identical to box height, or 150% */
 /* Orange/$-Orange-400 */
-color: #FF9138;
 /* Inside auto layout */
 flex: none;
 order: 1;
 flex-grow: 0;
 margin: 0px 8px;
+}
+.main-title.action{
+    color: #FF9138;
 }
 .logout{
 align-items: center;
@@ -425,7 +427,7 @@ position: absolute;
 width: 176px;
 height: 48px;
 left: 12px;
-top: 600px;
+top: 570px;
 /* Orange/$-Orange-50 */
 background: #FFF2E7;
 color: #FF9138;
@@ -573,14 +575,14 @@ top: 0px;
 border-radius: 48px;
 }
 
-::-webkit-scrollbar {
+.dropbox::-webkit-scrollbar {
    
     width: 4px;
     height: auto;
 
   }
   
-::-webkit-scrollbar-thumb {
+  .dropbox::-webkit-scrollbar-thumb {
     
     border-radius: 2px;
     background-color: #FF9138;
@@ -879,7 +881,108 @@ color: #FF7506;
     height: 500px;
     top: 130px;
     left: 208px;
+    
 }
+.container{  
+    position: absolute;
+    width: 1050px;
+    height: 500px;
+    top: 130px;
+    left: 220px;
+
+}
+.dropdown-container-main{
+    position: relative;
+    width: 800px;
+    float: left;
+    height: 72px;
+    
+}
+.dropdown-container{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    width: 200px;
+    float: left;
+    height: 72px;
+    
+}
+.dropdown-container-search{
+    position: relative;
+    left: 800px;
+    width: 250px;
+    height: 72px;
+    top: -75px;
+}
+.dropdown-box{
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    position: relative;
+    width: 200px;
+    top:24px;
+    height: 44px;
+    background: #FFFFFF;
+    cursor: pointer;
+/* Gray/$-gray-100 */
+
+    border: 1.5px solid #D4D4D7;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.box{
+    display:none;
+    position: absolute;
+    width: 360px;
+    height: 526px;
+    z-index: 5000;
+    /* White */
+    /* Pink shadow */
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    border-radius: 10px 10px 0 0;
+    background-color: red;
+}
+#dropAction:focus .box{
+    display: block;
+    
+}
+#dropConnect:focus .box{
+    display: inline-block;
+    z-index: 50000;
+}
+.dropdown-box p{
+   position: relative;
+   font-family: 'Nunito';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 24px;
+}
+.dropdown-box input{
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+ }
+.dropdown-box i{
+    color: #FF7506;
+    position: relative;
+ }
+ .dropdown-box i:focus .box{
+    display: block;
+ }
 .chart{
     position: absolute;
     top: 80px;
@@ -914,9 +1017,33 @@ height: 300px;
 .padding-left25{
     padding-left: 25px;
 }
-.chart-title{
+.margin-left10{
+    margin-left: 10px;
+}
+.margin-left15{
+    margin-left: 15px;
+}
+.margin-left20{
+    margin-left: 20px;
+}
+.margin-left25{
+    margin-left: 25px;
+}
+.margin-top10{
+    margin-top: 10px;
+}
+.margin-top15{
+    margin-top: 15px;
+}
+.margin-top20{
+    margin-top: 20px;
+}
+.margin-top25{
+    margin-top: 25px;
+}
+.component-title{
     position: absolute;
-width: 162px;
+width: 250px;
 height: 36px;
 left: 224px;
 top: 74px;
@@ -1164,4 +1291,143 @@ box-sizing: border-box;
 .bg-fire{
     background: #ffb4b4;
 }
+.table{
+    background: transparent;
+    border-radius: 10px;
+    width: 1050px;
+}
+.table tbody tr:nth-child(odd)
+{
+    background-color: #fff;
+}
+.table tbody tr:nth-child(even)
+{
+    background-color: #FFF2E7;
+}
+.bd-radius-topleft10{
+    border-radius: 10px 0 0 0 ;
+}
+.bd-radius-topright10{
+    border-radius: 0 10px 0 0 ;
+}
+thead{
+    position: relative;
+    background-color: #FF9138;
+  
+}
+td{
+    width: 200px;
+position: absolute;
+font-family: 'Nunito';
+font-style: normal;
+height: 60px;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+/* Gray/$-gray-400 Text */
+color: #535261;
+    position: relative;
+    padding-left: 10px;
+    text-align: start;
+}
+.overflow{
+    position: relative;
+    width: 250px;
+    height: 20px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+td a{
+    text-decoration: underline;
+    color: blue;
+    text-align: center;
+}
+tr{
+    position: relative;
+}
+th{
+    text-align: center;
+    width: 30px;
+    position: relative;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* White */
+    color: #FFFFFF;
+}
+table tbody{
+    position: relative;
 
+}
+td i, td p{
+    position: relative;
+}
+td p{
+    padding-left: 10px;
+}
+td i{
+    margin-top: 10px;
+}
+table{
+    width: 100%;
+    position: relative;
+}
+.container-control{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+}
+.add-button{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 12px 4px;
+position: relative;
+height: 94px;
+right: 70px;
+top: 204px;
+background: #FFF2E7;
+/* down */
+box-shadow: 0px 0px 6px #E7E9F2;
+border-radius: 8px 0px 0px 8px;
+}
+.add-button i{
+    
+    color: #FF7506;
+    position: relative;
+}
+.add-button p{
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+color: #FF7506;
+position: relative;
+}
+.strong{
+    font-weight: bold;
+}
+.relative{
+    position: relative;
+}
+@media (min-width: 0px) and (max-width: 1200px)
+{
+    *{
+        position: absolute;
+    }
+    body{
+        overflow-x: scroll;
+    }
+}
