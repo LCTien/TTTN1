@@ -41,3 +41,12 @@ Route::get('/dashboard', function () {
 Route::get('/equipment', function () {
     return view('equipment');
 })->name('equipment');
+Route::get('/equipment/add', function () {
+    return view('add-equipment');
+})->name('equipment.add');
+Route::get('/equipment/update/{id}', function () {
+    return view('update-equipment');
+})->name('equipment.update');
+Route::get('/equipment/detail/{id}', function () {
+    return view('detail-equipment');
+})->name('equipment.detail');

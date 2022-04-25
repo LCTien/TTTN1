@@ -107,6 +107,172 @@ margin: 0px 8px;
     flex-grow: 0;
     margin: 4px 0px;
 }
+.form-group{
+   
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    height: 85%;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.form-group .form-control2{
+    float: left;
+    width: 488px;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    position: static;
+    /* white */
+    background: #FFFFFF;
+    /* Gray/$-gray-100 */
+    box-sizing: border-box;
+    border-radius: 8px;
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.form-group .form-control2 input{
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+/* Gray/$-gray-200 placeholder */
+color: #A9A9B0;
+position: static;
+width: 100%;
+height: 44px;
+/* white */
+background: #FFFFFF;
+/* Gray/$-gray-100 */
+border: 1.5px solid #D4D4D7;
+box-sizing: border-box;
+border-radius: 8px;
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 5px 0px;
+outline: none;
+}
+.form-control2.w-100{
+    width: 100%;
+}
+.w-1000{
+    width: 1000px;
+}
+.form-group .form-control2 select{
+
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+/* Gray/$-gray-200 placeholder */
+color: #A9A9B0;
+position: static;
+width: 100%;
+height: 44px;
+/* white */
+background: #FFFFFF;
+/* Gray/$-gray-100 */
+border: 1.5px solid #D4D4D7;
+box-sizing: border-box;
+border-radius: 8px;
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 5px 0px;
+outline: none;
+}
+.form-group .form-buttons{
+    position: absolute;
+    width: 500px;
+    height: 48px;
+    left: 25%;
+    top: 350px;
+}
+.form-group .form-buttons button{
+    position: relative;
+    cursor: pointer;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px 24px;
+width: 147px;
+height: 48px;
+left: 0px;
+top: 0px;
+box-sizing: border-box;
+/* down */
+box-shadow: 0px 0px 6px #E7E9F2;
+border-radius: 8px;
+}
+.form-group .form-control2 h3{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+float: left;
+}
+.form-group .form-control2 p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 25px;
+}
+.form-group .form-control2 h3,.form-group .form-control2 p{
+    position: relative;
+}
+.form-group .form-control2 label{
+position: relative;
+width: 100%;
+height: 24px;
+left: 0px;
+top: 0px;
+/* 16/16 Semi */
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+/* Gray/$-gray-500 */
+color: #282739;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+label span{
+    position: relative;
+}
+.form-control2 p{
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+/* Gray/$-gray-300 */
+
+color: #7E7D88;
+}
 .warning{
     justify-items: center;
     border:0.5px solid red;
@@ -264,7 +430,6 @@ border-radius: 8px;
 }
 
 .denie-button{
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -295,7 +460,6 @@ a{
 }
 .continue-button{
     border: none;
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -938,21 +1102,61 @@ color: #FF7506;
 }
 .box{
     display:none;
-    position: absolute;
-    width: 360px;
-    height: 526px;
+    position: relative;
+    top: 25px;
+    float: left;
+    width: 200px;
+    height: auto;
     z-index: 5000;
     /* White */
     /* Pink shadow */
     box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
-    border-radius: 10px 10px 0 0;
-    background-color: red;
+    background-color: white;
+    border-radius: 10px;
 }
-#dropAction:focus .box{
+.see-more{
+    display: none;
+    top: 2px;
+    position: absolute;
+    width: 245px;
+    height: 55px;
+    z-index: 5;
+    background: white;
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    border-radius: 10px;
+}
+#see-more:hover .see-more{
+    display: block;
+}
+.box-items{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px 12px;
+position: static;
+width: 200px;
+height: 44px;
+left: 0px;
+/* Orange/$-Orange-50 */
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+margin: 2px 0px;
+cursor: pointer;
+}
+.box-active{
+    background: #FFF2E7;
+}
+.box-items:hover{
+    background: #FFF2E7;
+}
+#dropAction:hover .box{
     display: block;
     
 }
-#dropConnect:focus .box{
+#dropConnect:hover .box{
     display: inline-block;
     z-index: 50000;
 }
@@ -980,15 +1184,71 @@ color: #FF7506;
     color: #FF7506;
     position: relative;
  }
- .dropdown-box i:focus .box{
-    display: block;
+ .page-control{
+    padding-top: 10px;
+     right: 0;
+     position: absolute;
+     color: #A9A9B0;
+     width: auto;
+     height: 50px;
+     top: 450;
+     
  }
+ .page-control a{
+    position: relative; 
+ }
+ .page-control .page{
+    padding: 16px 16px 16px 16px;
+    
+ }
+ .page-control .page:hover{
+    border-radius: 10px;
+    background-color: #FF7506;
+    color: white;
+ }
+ .page-active{
+    border-radius: 10px;
+    background-color: #FF7506;
+    color: white;
+    
+ }
+ .page-control i{
+     position: relative;
+     top: 7px;
+     color: #A9A9B0;
+ }
+ 
 .chart{
     position: absolute;
     top: 80px;
     left: 24px;
 width: 752px;
 height: 300px;
+}
+.h-350{
+    height: 350px;
+}
+.h-375{
+    height: 375px;
+}
+.h-400{
+    height: 400px;
+}
+.form-title{
+    position: absolute;
+width: 160px;
+height: 30px;
+left: 24px;
+top: 16px;
+/* 20/20 Bold */
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+/* Orange/$-Orange-500 */
+color: #FF7506;
 }
 .padding-top5{
     padding-top: 5px;
@@ -1028,6 +1288,18 @@ height: 300px;
 }
 .margin-left25{
     margin-left: 25px;
+}
+.margin-right10{
+    margin-right: 10px;
+}
+.margin-right15{
+    margin-right: 15px;
+}
+.margin-right20{
+    margin-right: 20px;
+}
+.margin-right25{
+    margin-right: 25px;
 }
 .margin-top10{
     margin-top: 10px;
@@ -1280,6 +1552,9 @@ box-sizing: border-box;
 .orange{
     color: orange;
    
+}
+.bg-white{
+    background: white;
 }
 .bg-orange{
     background: #ffd7b6;
