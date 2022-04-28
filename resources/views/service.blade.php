@@ -1,11 +1,11 @@
 @extends('layout.layout')
 @extends('layout.navbar')
 @section('content')
-<div class="main-title">Thiết bị >   <span class="orange strong">  Danh sách thiết bị</span></div>
-<p class="component-title strong">Danh sách thiết bị</p>
-<div  class="container-control"><a href="{{ route('equipment.add') }}" class="add-button">
+<div class="main-title">Thiết bị >   <span class="orange strong">  Danh sách dịch vụ</span></div>
+<p class="component-title strong">Danh sách dịch vụ</p>
+<div  class="container-control"><a href="{{ route('service.add') }}" class="add-button">
     <i class="material-icons">add_box</i>
-    <p>Thêm thiết bị</p>
+    <p>Thêm dịch vụ</p>
 </a>
 </div>
 
@@ -26,21 +26,24 @@
                 </ul>
             </div>
         </div>
-        <div class="dropdown-container margin-left15" >
-            <p>Trạng thái kết nối</p>
-            <div class="dropdown-box" id="dropConnect">
-                <p>Tất cả</p>
-                <i class="material-icons">arrow_drop_down</i>
+        <div class="dropdown-container margin-left15">
+            <p>Chọn thời gian</p>
+            <div class="dropdown-box-calendar">
+                <i class="far fa-calendar-alt"></i>
+                <p>26/04/2022</p>
             </div>
-            <div class="box" id="dropConnect-box">
-                <ul>
-                    <li class="box-items box-active">Tất cả</li>
-                    <li class="box-items ">Kết nối</li>
-                    <li class="box-items ">Mất kết nối</li>
-                </ul> 
+            <div class="box-calendar">
+                <div class="bg-white w-100" id="caleandar" style="width:300px;height:260px"></div>
+            </div>
+            <div class="dropdown-box-calendar-and">
+            <i class="material-icons">play_arrow</i>
+            </div>
+            <div class="dropdown-box-calendar">
+                <i class="far fa-calendar-alt"></i>
+                <p>26/04/2022</p>
             </div>
         </div>
-      
+        
     </div>
     <script> 
     $(document).ready(function(){
@@ -53,8 +56,8 @@
             $("#dropAction-box").removeClass("block");
             $("#dropAction p").text($(this).text());
         });
-        $("#dropConnect").click(function(){
-            $("#dropConnect-box").toggleClass("block");
+        $(".dropdown-box-calendar").click(function(){
+            $(".box-calendar").toggleClass("block");
         });
         $("#dropConnect-box li").click(function(){
             $("#dropConnect-box .box-active").removeClass("box-active");
@@ -77,12 +80,10 @@
         <table>
             <thead>
                <tr>
-                   <th class="bd-radius-topleft10">Mã thiết bị</th>
-                   <th>Tên thiết bị</th>
-                   <th>Địa chỉ IP</th>
+                   <th class="bd-radius-topleft10">Mã dịch vụ</th>
+                   <th>Tên dịch vụ</th>
+                   <th>Mô tả</th>
                    <th>Trạng thái hoạt động</th>
-                   <th>Trạng thái kết nối</th>
-                   <th>Dịch vụ sử dụng</th>
                    <th>&emsp;</th>
                    <th class="bd-radius-topright10">&emsp;</th>
                </tr>
@@ -91,62 +92,42 @@
                <tr>
                  <td>KIO_01</td>
                  <td>Kiosk</td>
-                 <td>127.0.0.0</td>
+                 <td>mô tả hoạt động 1</td>
                  <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                 <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                 <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                    <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-                </td>
                  <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
                  <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
                </tr>
                <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
-                <td>127.0.0.0</td>
+                <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
+                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
               <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
-                <td>127.0.0.0</td>
+                <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
+                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
               <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
-                <td>127.0.0.0</td>
+                <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
+                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
               <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
-                <td>127.0.0.0</td>
+                <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
+                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
             </tbody>
         </table>

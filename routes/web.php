@@ -36,17 +36,30 @@ Route::get('/admin-info', function () {
     return view('admin-info');
 })->name('admin.info');
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard',['isDashboard' => true]);
 })->name('dashboard');
 Route::get('/equipment', function () {
-    return view('equipment');
+    return view('equipment',['isEquipment' => true]);
 })->name('equipment');
 Route::get('/equipment/add', function () {
-    return view('add-equipment');
+    return view('add-equipment',['isEquipment' => true]);
 })->name('equipment.add');
 Route::get('/equipment/update/{id}', function () {
-    return view('update-equipment');
+    return view('update-equipment',['isEquipment' => true]);
 })->name('equipment.update');
 Route::get('/equipment/detail/{id}', function () {
-    return view('detail-equipment');
+    return view('detail-equipment',['isEquipment' => true]);
 })->name('equipment.detail');
+Route::post('add',function (Request $request) {
+    dd($request);
+    return redirect()->route('equipment');
+})->name('add.equipment');
+Route::get('/service', function () {
+    return view('service',['isService' => true]);
+})->name('service');
+Route::get('/service/add', function () {
+    return view('add-service',['isService' => true]);
+})->name('service.add');
+Route::get('/service/detail', function () {
+    return view('detail-service',['isService' => true]);
+})->name('service.detail');

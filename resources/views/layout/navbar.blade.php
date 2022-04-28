@@ -1,15 +1,13 @@
 <nav>
     <img src="/assets/img/LogoAltaMedia.png" alt="logo" class="dashboard-logo">
-    <a href="{{ route('dashboard') }}" class="nav-item active"><i class="material-icons">dashboard</i> <p>Dashboard</p></a>
-    <a href="{{ route('equipment') }}" class="nav-item"> <i class="material-icons">desktop_windows</i> <p>Thiết bị</p></a>
-    <a href="#" class="nav-item"> <i class="material-icons">question_answer</i> <p>Dịch vụ</p></a>   
+    <a href="{{ route('dashboard') }}" class="nav-item @if (isset($isDashboard))active @endif"><i class="material-icons">dashboard</i> <p>Dashboard</p></a>
+    <a href="{{ route('equipment') }}" class="nav-item @if (isset($isEquipment)) active @endif"> <i class="material-icons">desktop_windows</i> <p>Thiết bị</p></a>
+    <a href="{{ route('service') }}" class="nav-item @if (isset($isService))active @endif"> <i class="material-icons">question_answer</i> <p>Dịch vụ</p></a>   
     <a href="#" class="nav-item"> <i class="fas fa-layer-group"></i> <p>Cấp số</p></a>
     <a href="#" class="nav-item"> <i class="fas fa-chart-bar"></i> <p>Báo cáo</p></a>
     <a href="#" class="nav-item"> <i class="material-icons">settings</i> <p>Cài đặt hệ thống</p></a>
     <a href="{{ route('login') }}" class="logout"> <i class="fas fa-sign-out-alt"></i> Đăng Xuất</a>
 </nav>
-
-   
     <a  class="anoun-bell" href="#"><i class="fas fa-bell"></i>
         <div class="dropbox ">
             <div class="dropbox content">Thông báo</div>

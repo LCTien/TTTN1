@@ -108,9 +108,8 @@ margin: 0px 8px;
     margin: 4px 0px;
 }
 .form-group{
-   
     position: absolute;
-    top: 15%;
+    top: 10%;
     width: 100%;
     height: 85%;
     padding-left: 24px;
@@ -122,7 +121,7 @@ margin: 0px 8px;
     height: auto;
     flex-direction: row;
     align-items: center;
-    position: static;
+    position: relative;
     /* white */
     background: #FFFFFF;
     /* Gray/$-gray-100 */
@@ -134,7 +133,7 @@ margin: 0px 8px;
     order: 1;
     flex-grow: 0;
 }
-.form-group .form-control2 input{
+.form-group .form-control2 input[type="text"]{
 font-family: 'Nunito';
 font-style: normal;
 font-weight: 400;
@@ -196,23 +195,37 @@ outline: none;
     width: 500px;
     height: 48px;
     left: 25%;
-    top: 350px;
+    top: 380px;
 }
 .form-group .form-buttons button{
     position: relative;
     cursor: pointer;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px 24px;
-width: 147px;
-height: 48px;
-left: 0px;
-top: 0px;
-box-sizing: border-box;
-/* down */
-box-shadow: 0px 0px 6px #E7E9F2;
-border-radius: 8px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    width: 147px;
+    height: 45px;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    /* down */
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px;
+}
+.form-group .form-buttons a{
+    position: relative;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    /* down */
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px;
 }
 .form-group .form-control2 h3{
     font-family: 'Nunito';
@@ -221,6 +234,100 @@ font-weight: 600;
 font-size: 16px;
 line-height: 24px;
 float: left;
+}
+.box ul{
+    position: relative;
+    width: 100%;
+    background: white;
+}
+.get-number-rule{
+    position: absolute;
+    top: 180px;
+    width: 500px;
+    height: 170px;
+}
+.icon{
+    position: relative;
+}
+.get-number-rule .rule{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    height: auto;
+}
+.rule span{
+    position: relative;
+    padding: 0 5px;
+}
+.rule p{
+    float: left;
+    position: relative;
+    width: 120px;
+    height: 24px;
+    left: 0px;
+    top: 0px;
+    /* 16/16 Semi */
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    display: flex;
+    align-items: center;
+    /* Gray/$-gray-500 */
+    color: #282739;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 4px;
+}
+.get-number-rule .rule input[type="checkbox"]{
+    float: left;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    /* Blue */
+    border: 1.5px solid #4277FF;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.get-number-rule .rule input[type="text"]{
+    outline: none;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 61px;
+    height: 26px;
+    left: 187px;
+    top: 280px;
+    /* white */
+    background: #FFFFFF;
+    /* Gray/$-gray-100 */
+
+    border: 1.5px solid #D4D4D7;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.get-number-rule .rule-title{
+    position: relative;
+    top: 0;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
 }
 .form-group .form-control2 p{
     font-family: 'Nunito';
@@ -232,6 +339,90 @@ float: left;
 }
 .form-group .form-control2 h3,.form-group .form-control2 p{
     position: relative;
+}
+.tag-box{
+    position: relative;
+    padding: 16px 12px;
+    top: 230px;
+}
+.tag-box p{
+    padding-left: 10px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    
+}
+.tag-box span{
+    color: red;
+}
+.tag-box ul{
+    flex-wrap: wrap;
+    display: flex;
+    position: static;
+    width: 97.25%;
+    height: auto;
+    margin-left: 10px;
+    left: 0px;
+    top: 32px;
+   
+    /* white */
+
+    background: #FFFFFF;
+    /* Gray/$-gray-100 */
+
+    border: 1.5px solid #D4D4D7;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.tag-box ul input[type="text"]{
+    flex:1;
+    margin-left: 10px;
+    position: relative;
+    width: 100px;
+    max-width: auto;
+    height: 42px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.tag-box ul li{
+    margin-top: 5px;
+    display: flex;
+    position: relative;
+    list-style: none;
+    padding: 10px 12px;
+    flex-direction: row;
+    height: 28px;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFAC6A;
+    /* down */
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 9px;
+    margin-left: 15px;
+    color: white;
+}
+.tag-box ul li i{
+    position: relative;
+    font-size: 15px;
+    top:8%;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.tag-box ul li i:hover{
+    border-radius: 50%;
+    background: white;
+    color: #FF9138;
+}
+ .border-none{
+    border: none;
 }
 .form-group .form-control2 label{
 position: relative;
@@ -265,12 +456,9 @@ font-weight: 400;
 font-size: 14px;
 line-height: 21px;
 /* identical to box height, or 150% */
-
 display: flex;
 align-items: center;
-
 /* Gray/$-gray-300 */
-
 color: #7E7D88;
 }
 .warning{
@@ -878,7 +1066,7 @@ border-radius: 6px;
 
 .nav-right
 {
-    z-index: 3;
+z-index: 3;
 position: absolute;
 width: 401px;
 height: 100%;
@@ -895,7 +1083,7 @@ position: absolute;
 width: 353px;
 height: 36px;
 left: 24px;
-top: 74px;
+top: 54px;
 /* 24/24 Bold */
 font-family: 'Nunito';
 font-style: normal;
@@ -914,7 +1102,7 @@ position: relative;
 width: 80%;
 height: 83px;
 left: 24px;
-top: 126px;
+top: 106px;
 /* White */
 background: #FFFFFF;
 box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
@@ -928,7 +1116,7 @@ width: 60px;
 height: 60px;
 left: 0px;
 top: 0px;
-background: #FF7506;
+border: 0.5px solid red;
 }
 .nav-right-card-chart-percent{
 position: absolute;
@@ -936,27 +1124,21 @@ width: 31px;
 height: 24px;
 left: 15px;
 top: 18px;
-
 font-family: 'Nunito';
 font-style: normal;
 font-weight: 700;
 font-size: 14px;
 line-height: 24px;
 /* identical to box height, or 171% */
-
-
 /* Gray/$-gray-400 Text */
-
 color: #535261;
-
 
 }
 .nav-right-card-items{
 position: relative;
 width: 64px;
 height: 36px;
-left: 70px;
-top: 0;
+padding-left: 70px;
 font-family: 'Nunito';
 font-style: normal;
 font-weight: 800;
@@ -1004,7 +1186,7 @@ color: #7E7D88;
     line-height: 15px;
     /* identical to box height, or 175% */
     /* Gray/$-gray-300 */
-    }
+}
 .nav-right-card-items-2-item{
     position: relative;
     width: 140px;
@@ -1013,10 +1195,11 @@ color: #7E7D88;
 }
 .nav-right-calendar{
 position: relative;
+display: flex;
 width: 80%;
-height: 200px;
+height: 220px;
 left: 24px;
-top: 126px;
+top: 106;
 
 /* White */
 background: #FFFFFF;
@@ -1056,40 +1239,40 @@ color: #FF7506;
 
 }
 .dropdown-container-main{
-    position: relative;
-    width: 800px;
+    position: absolute;
+    display: flex;
+    width: 76%;
     float: left;
     height: 72px;
-    
 }
 .dropdown-container{
+    user-select: none;
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     position: relative;
-    width: 200px;
+    position: relative;
+    flex: 1;
     float: left;
     height: 72px;
-    
 }
 .dropdown-container-search{
     position: relative;
     left: 800px;
-    width: 250px;
+    width: 100%;
     height: 72px;
-    top: -75px;
+    padding-left: 10px;
 }
 .dropdown-box{
     float: left;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 10px 12px;
     position: relative;
-    width: 200px;
+    width: 100%;
     top:24px;
     height: 44px;
     background: #FFFFFF;
@@ -1100,12 +1283,54 @@ color: #FF7506;
     box-sizing: border-box;
     border-radius: 8px;
 }
+.dropdown-box-calendar{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px;
+    position: relative;
+    width: auto;
+    top:24px;
+    height: 44px;
+    background: #FFFFFF;
+    cursor: pointer;
+/* Gray/$-gray-100 */
+
+    border: 1.5px solid #D4D4D7;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.dropdown-box-calendar-and{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 12px;
+    position: relative;
+
+    top:24px;
+    height: 44px;
+/* Gray/$-gray-100 */
+}
+.box-calendar{
+    display:none;
+    position: absolute;
+    top: 70px;
+    float: left;
+    z-index: 5000;
+    /* White */
+    /* Pink shadow */
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    background-color: white;
+    border-radius: 10px;
+}
 .box{
     display:none;
     position: relative;
     top: 25px;
     float: left;
-    width: 200px;
+    width: 100%;
     height: auto;
     z-index: 5000;
     /* White */
@@ -1128,13 +1353,16 @@ color: #FF7506;
 #see-more:hover .see-more{
     display: block;
 }
+.block{
+    display: block;
+}
 .box-items{
 display: flex;
 flex-direction: row;
 align-items: center;
 padding: 10px 12px;
 position: static;
-width: 200px;
+width: 100%;
 height: 44px;
 left: 0px;
 /* Orange/$-Orange-50 */
@@ -1152,14 +1380,6 @@ cursor: pointer;
 .box-items:hover{
     background: #FFF2E7;
 }
-#dropAction:hover .box{
-    display: block;
-    
-}
-#dropConnect:hover .box{
-    display: inline-block;
-    z-index: 50000;
-}
 .dropdown-box p{
    position: relative;
    font-family: 'Nunito';
@@ -1167,7 +1387,17 @@ cursor: pointer;
    font-weight: 400;
    font-size: 16px;
    line-height: 24px;
+
 }
+.dropdown-box-calendar p{
+    position: relative;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-left: 10px;
+ }
 .dropdown-box input{
     outline: none;
     width: 100%;
@@ -1181,6 +1411,10 @@ cursor: pointer;
     line-height: 24px;
  }
 .dropdown-box i{
+    color: #FF7506;
+    position: relative;
+ }
+ .dropdown-box-calendar i{
     color: #FF7506;
     position: relative;
  }
@@ -1217,14 +1451,12 @@ cursor: pointer;
      top: 7px;
      color: #A9A9B0;
  }
- 
-.chart{
-    position: absolute;
-    top: 80px;
-    left: 24px;
-width: 752px;
-height: 300px;
-}
+ #chart {
+     padding-top: 10px;
+     position: relative;
+    width: 100%;
+    margin: 35px auto;
+  }
 .h-350{
     height: 350px;
 }
@@ -1235,7 +1467,7 @@ height: 300px;
     height: 400px;
 }
 .form-title{
-    position: absolute;
+    position: relative;
 width: 160px;
 height: 30px;
 left: 24px;
@@ -1591,7 +1823,7 @@ thead{
   
 }
 td{
-    width: 200px;
+width: 200px;
 position: absolute;
 font-family: 'Nunito';
 font-style: normal;
@@ -1623,8 +1855,8 @@ tr{
     position: relative;
 }
 th{
+    height: 50px;
     text-align: center;
-    width: 30px;
     position: relative;
     font-family: 'Nunito';
     font-style: normal;

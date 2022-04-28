@@ -34,16 +34,20 @@
             <label for="code">Mật khẩu: <span class="fire">*</span></label>
             <input type="text" name="password" placeholder="Nhập mật khẩu">
         </div>
-        <div class="form-control2 w-100">
-            <label for="code">Dịch vụ sử dụng: <span class="fire">*</span></label>
-            <input type="text" name="service_used" placeholder="Nhập dịch vụ sử dụng">
-        </div>
-        <div class="form-control2">
-            <p><span class="fire relative">*</span>là trường thông tin bắt buộc</p>
-        </div>
+       
         <div class="form-buttons">
-            <button type="submit" class="denie-button">Hủy bỏ</button>
+            <a class="denie-button" href="{{ route('equipment') }}">Hủy bỏ</a>
             <button type="submit" class="continue-button">Cập nhật</button>
         </div>
     </form>
+    <div class="tag-box">
+        <p>Dịch vụ sử dụng:<span>*</span></p>
+        <ul id="tag-box">
+            <input type="text" placeholder="Nhập dịch vụ sử dụng">
+        </ul>
+        <div class="form-control2">
+            <p><span class="fire relative">*</span>là trường thông tin bắt buộc</p>
+        </div>
+    </div>
+
 </div>
