@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @extends('layout.navbar')
 @section('content')
-<div class="main-title">Thiết bị > Danh sách dịch vụ  ><span class="orange strong"> Thêm dịch vụ </span></div>
+<div class="main-title">Dịch vụ > Danh sách dịch vụ  ><span class="orange strong"> Thêm dịch vụ </span></div>
 <p class="component-title strong">Quản lý dịch vụ</p>
 <div class="container bg-white h-400">
     <div class="form-title">Thông tin thiết bị</div>

@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('role_name', 100)->nullable()->default('text');
-            $table->integer('status')->unsigned()->nullable()->default(1);
+        Schema::create('accounts', function (Blueprint $table) {
+            $table->id();
+            $table->string('fullname');
+            $table->string('username');
+            $table->string('phonenumber');
+            $table->string('email')->unique();
+            $table->unsignedBigInteger('role_id');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('accounts');
     }
 };

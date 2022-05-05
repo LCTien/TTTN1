@@ -2,7 +2,7 @@
 @extends('layout.navbar')
 @section('content')
 <div class="main-title">Thiết bị >   <span class="orange strong">  Danh sách thiết bị</span></div>
-<p class="component-title strong">Danh sách thiết bị</p>
+<p class="component-title strong">Quản lý thiết bị</p>
 <div  class="container-control"><a href="{{ route('equipment.add') }}" class="add-button">
     <i class="material-icons">add_box</i>
     <p>Thêm thiết bị</p>
@@ -44,23 +44,43 @@
     </div>
     <script> 
     $(document).ready(function(){
+        let flag1 =0;
+        let flag2 =0;
         $("#dropAction").click(function(){
             $("#dropAction-box").toggleClass("block");
+            $('#dropAction i').text('arrow_drop_up');
+            flag1++;
+            if(flag1 == 2)
+            {
+                flag1 = 0;
+                $('#dropAction i').text('arrow_drop_down');
+            }
         });
         $("#dropAction-box li").click(function(){
             $("#dropAction-box .box-active").removeClass("box-active");
             $(this).toggleClass("box-active");
             $("#dropAction-box").removeClass("block");
             $("#dropAction p").text($(this).text());
+            $('#dropAction i').text('arrow_drop_down');
+            flag1 =0;
         });
         $("#dropConnect").click(function(){
             $("#dropConnect-box").toggleClass("block");
+            $('#dropConnect i').text('arrow_drop_up');
+            flag2++;
+            if(flag2 == 2)
+            {
+                flag2 = 0;
+                $('#dropConnect i').text('arrow_drop_down');
+            }
         });
         $("#dropConnect-box li").click(function(){
             $("#dropConnect-box .box-active").removeClass("box-active");
             $(this).toggleClass("box-active");
             $("#dropConnect-box").removeClass("block");
             $("#dropConnect p").text($(this).text());
+            $('#dropConnect i').text('arrow_drop_down');
+            flag2 =0;
         });
     });
     </script>

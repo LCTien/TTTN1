@@ -52,26 +52,22 @@
      <div class="chart" id="chart">
      </div>
  @push('chart')
-    <script>
-        
-var options = {
-  chart: {
-    height:'300px',
-    type: 'area'
-  },
-  series: [{
+    <script>    
+        var options = {
+        chart: {
+            height:'300px',
+            type: 'area'
+        },
+        series: [{
+            data: [30,40,35,50,49,60,70,91,125]
+        }],
+        xaxis: {
+            categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        },
 
-    data: [30,40,35,50,49,60,70,91,125]
-  }],
-  xaxis: {
-      
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
-}
-
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-chart.render();
+        }
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
     </script>
 @endpush
    </div>
@@ -79,14 +75,17 @@ chart.render();
 <div class="nav-right">
     <p class="nav-right-title">Tổng quan</p>
     <div class="nav-right-card">
-        <div class="nav-right-card-chart bg-orange" id="chart-equipment">
-            <div class="nav-right-card-chart-percent ">90%</div>
+        <div class="nav-right-card-chart bd-orange" id="chart-equipment">
+            <div class="nav-right-card-chart-percent ">
+                90%
+            </div>
             <p class="nav-right-card-items">24000</p>
             <div class="nav-right-card-content">
                 <i class="material-icons">desktop_windows</i> 
                 <p class="padding-left25">Thiết bị</p>
-            </div>    
-        </div>
+            </div>  
+            
+    </div>
         <div class="nav-right-card-items-2">
             <div class="nav-right-card-items-2-item">
             <div class="padding-top5">
@@ -105,7 +104,7 @@ chart.render();
         </div>
         </div><br>
         <div class="nav-right-card">
-            <div class="nav-right-card-chart bg-water">
+            <div class="nav-right-card-chart bd-water">
                 <p class="nav-right-card-chart-percent">90%</p>
                 <p class="nav-right-card-items">24000</p>
                 <div class="nav-right-card-content water">
@@ -131,7 +130,7 @@ chart.render();
             </div>
             </div><br>
             <div class="nav-right-card">
-                <div class="nav-right-card-chart bg-jungle">
+                <div class="nav-right-card-chart bd-jungle">
                     <p class="nav-right-card-chart-percent">90%</p>
                     <p class="nav-right-card-items">24000</p>
                     <div class="nav-right-card-content jungle">

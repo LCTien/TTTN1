@@ -14,13 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('equipments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('CEQ',100)->unique()->notnull();
-            $table->string('name', 100)->nullable()->default('text');
-            $table->string('Address_IP', 100);
-            $table->integer('action_status')->unsigned()->nullable()->default(1);
-            $table->integer('connect_status')->unsigned()->nullable()->default(1);
-            $table->string('service_use');
+            $table->string('Code')->notnull()->unique()->primary();
+            $table->string('name', 100);
+            $table->string('IP', 100);
+            $table->string('service_use',1000);
+            $table->integer('status_active');
+            $table->integer('status_connect');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipments');
-        }
+        Schema::dropIfExists('equipment');
+    }
 };

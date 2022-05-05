@@ -1,8 +1,8 @@
 @extends('layout.layout')
 @extends('layout.navbar')
 @section('content')
-<div class="main-title">Thiết bị >   <span class="orange strong">  Danh sách dịch vụ</span></div>
-<p class="component-title strong">Danh sách dịch vụ</p>
+<div class="main-title">Dịch vụ >   <span class="orange strong">  Danh sách dịch vụ</span></div>
+<p class="component-title strong">Quản lý dịch vụ</p>
 <div  class="container-control"><a href="{{ route('service.add') }}" class="add-button">
     <i class="material-icons">add_box</i>
     <p>Thêm dịch vụ</p>
@@ -26,7 +26,8 @@
                 </ul>
             </div>
         </div>
-        <div class="dropdown-container margin-left15">
+        
+        <div class="dropdown-container margin-left15" style="width: 500px">
             <p>Chọn thời gian</p>
             <div class="dropdown-box-calendar">
                 <i class="far fa-calendar-alt"></i>
@@ -47,14 +48,24 @@
     </div>
     <script> 
     $(document).ready(function(){
+        let flag1 = 0;
         $("#dropAction").click(function(){
             $("#dropAction-box").toggleClass("block");
+            $('#dropAction i').text('arrow_drop_up');
+            flag1++;
+            if(flag1 == 2)
+            {
+                flag1 = 0;
+                $('#dropAction i').text('arrow_drop_down');
+            }
         });
         $("#dropAction-box li").click(function(){
             $("#dropAction-box .box-active").removeClass("box-active");
             $(this).toggleClass("box-active");
             $("#dropAction-box").removeClass("block");
             $("#dropAction p").text($(this).text());
+            $('#dropAction i').text('arrow_drop_down');
+            flag1 =0;
         });
         $(".dropdown-box-calendar").click(function(){
             $(".box-calendar").toggleClass("block");
@@ -94,40 +105,40 @@
                  <td>Kiosk</td>
                  <td>mô tả hoạt động 1</td>
                  <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                 <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
-                 <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
+                 <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
+                 <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
                </tr>
                <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
                 <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
+                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
               <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
                 <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
+                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
               <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
                 <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
+                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
               <tr>
                 <td>KIO_01</td>
                 <td>Kiosk</td>
                 <td>mô tả hoạt động 1</td>
                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
+                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
               </tr>
             </tbody>
         </table>

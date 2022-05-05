@@ -63,3 +63,43 @@ Route::get('/service/add', function () {
 Route::get('/service/detail', function () {
     return view('detail-service',['isService' => true]);
 })->name('service.detail');
+Route::get('/service/update', function () {
+    return view('update-service',['isService' => true]);
+})->name('service.update');
+Route::post('/update-service', function (Request $request) {
+    dd($request);
+})->name('update.service');
+Route::get('/givenumber',function(){
+    return view('givenumber',['isGivenumber'=> true]);
+})->name('givenumber');
+Route::get('/givenumber/add',function(){
+    return view('add-givenumber',['isGivenumber'=> true]);
+})->name('givenumber.add');
+Route::get('/givenumber/update',function(){
+    return view('givenumber',['isGivenumber'=> true]);
+})->name('givenumber.update');
+Route::get('/report',function(){
+    return view('report',['isReport'=> true]);
+})->name('report');
+Route::get('/manage/rule',function(){
+    return view('rule',['isInstall'=> true,'isRule' => true]);
+})->name('rule.management');
+Route::get('/manage/rule/add',function(){
+    return view('add-rule',['isInstall'=> true,'isRule' => true]);
+})->name('rule.add');
+
+//account
+Route::get('/manage/account',function(){
+    return view('account',['isInstall'=> true,'isAccount' => true]);
+})->name('account');
+Route::get('/manage/account/add',function(){
+    return view('add-account',['isInstall'=> true,'isAccount' => true]);
+})->name('account.add');
+Route::get('/manage/account/update/{id}',function(){
+    return view('update-account',['isInstall'=> true,'isAccount' => true]);
+})->name('account.update');
+
+//diary
+Route::get('/manage/diary',function(){
+    return view('diary-user',['isInstall'=> true,'isDiary' => true]);
+})->name('diary');

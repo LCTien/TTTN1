@@ -11,7 +11,7 @@ body{
     height: 100%;    /* BG */
     background: #f7f7f7;
     border-radius: 16px;
-   
+
 }
 .logo{
     position: absolute;
@@ -119,8 +119,6 @@ margin: 0px 8px;
     float: left;
     width: 488px;
     height: auto;
-    flex-direction: row;
-    align-items: center;
     position: relative;
     /* white */
     background: #FFFFFF;
@@ -128,7 +126,6 @@ margin: 0px 8px;
     box-sizing: border-box;
     border-radius: 8px;
     /* Inside auto layout */
-    
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -158,6 +155,31 @@ flex-grow: 0;
 margin: 5px 0px;
 outline: none;
 }
+.form-group .form-control2 input[type="email"],.form-group .form-control2 input[type="password"]{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* Gray/$-gray-200 placeholder */
+    color: #A9A9B0;
+    position: static;
+    width: 100%;
+    height: 44px;
+    /* white */
+    background: #FFFFFF;
+    /* Gray/$-gray-100 */
+    border: 1.5px solid #D4D4D7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 5px 0px;
+    outline: none;
+    }
 .form-control2.w-100{
     width: 100%;
 }
@@ -343,7 +365,7 @@ color: #FF7506;
 .tag-box{
     position: relative;
     padding: 16px 12px;
-    top: 230px;
+    top: 210px;
 }
 .tag-box p{
     padding-left: 10px;
@@ -622,11 +644,9 @@ border-radius: 8px;
     justify-content: center;
     align-items: center;
     padding: 10px 24px;
-    position: absolute;
+    position: relative;
     width: 162px;
     height: 40px;
-    left: 118px;
-    top: 430px;
     /* Orange/$-Orange-400 */
     border: 1px solid #FF9138;
     box-sizing: border-box;
@@ -651,12 +671,9 @@ a{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px 24px;
     position: absolute;
     width: 162px;
     height: 40px;
-    left: 304px;
-    top: 430px;
     /* Orange/$-Orange-400 */
     background: #FF9138;
     /* down */
@@ -694,7 +711,6 @@ border-radius: 16px 0px 0px 16px;
     bottom: 16.97%;
 }
 .nav-item{
-   
     padding-top: 12px;
     padding-left: 25px;
     position: relative;
@@ -818,7 +834,6 @@ display:none;
 position: absolute;
 width: 360px;
 height: 526px;
-
 right: 0;
 top: 32px;
 z-index: 4;
@@ -926,20 +941,115 @@ right:260px;
 top: 0px;
 border-radius: 48px;
 }
+.givenumber-form{
+    padding: 24px 18px;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.givenumber-form h1{
+    position: relative;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height, or 150% */
+    /* Orange/$-Orange-500 */
+    color: #FF7506;
+}
+.givenumber-form .dropdown{
 
-.dropbox::-webkit-scrollbar {
-   
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    height: 44px;
+    /* white */
+    /* Gray/$-gray-100 */
+    border: 1.5px solid #D4D4D7;
+    box-sizing: border-box;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.givenumber-form .dropdown p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    /* Gray/$-gray-200 placeholder */
+    color: #A9A9B0;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 24px;
+}
+.givenumber-form .dropdown i{
+    position: relative;
+    color: #FF7506;
+}
+.givenumber-form p{
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height, or 150% */
+    /* Gray/$-gray-400 Text */
+    color: #535261;
+}
+.givenumber-dropbox{
+    
+    display: none;
+    position: absolute;
+    width: 100%;
+}
+.dropdown .givenumber-dropbox ul{
+    background: white;
+    z-index: 20;
+    position: relative;
+    width: 100%;
+    top: 90px;
+    height: 130px;
+    overflow-y: scroll;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
+.dropdown .givenumber-dropbox ul::-webkit-scrollbar {  
     width: 4px;
     height: auto;
-
   }
-  
-  .dropbox::-webkit-scrollbar-thumb {
-    
+  .dropdown .givenumber-dropbox ul::-webkit-scrollbar-thumb {
     border-radius: 2px;
     background-color: #FF9138;
   }
-  
+.dropbox::-webkit-scrollbar {  
+    width: 4px;
+    height: auto;
+  }
+  .dropbox::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #FF9138;
+  }
+  .box::-webkit-scrollbar {
+    width: 1px;
+    height: auto;
+  }
+  .box::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #FF9138;
+  }
 .title-2{
     position: absolute;
     z-index: 5000;
@@ -1109,14 +1219,20 @@ box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
 border-radius: 12px;
 
 }
+select{
+    cursor: pointer;
+}
 .nav-right-card-chart
 {
+-webkit-border-radius: 50%;
 position: relative;
 width: 60px;
 height: 60px;
 left: 0px;
 top: 0px;
-border: 0.5px solid red;
+border-radius: 50%;
+border: 1px solid red;
+background: transparent;
 }
 .nav-right-card-chart-percent{
 position: absolute;
@@ -1230,7 +1346,8 @@ color: #FF7506;
     left: 208px;
     
 }
-.container{  
+.container{ 
+    border-radius: 12px; 
     position: absolute;
     width: 1050px;
     height: 500px;
@@ -1239,13 +1356,17 @@ color: #FF7506;
 
 }
 .dropdown-container-main{
-    position: absolute;
+    position: relative;
     display: flex;
-    width: 76%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 64%;
     float: left;
     height: 72px;
 }
 .dropdown-container{
+    display: flex;
+    flex-wrap: none;
     user-select: none;
     font-family: 'Nunito';
     font-style: normal;
@@ -1257,13 +1378,12 @@ color: #FF7506;
     flex: 1;
     float: left;
     height: 72px;
+    z-index: 10;
 }
 .dropdown-container-search{
     position: relative;
-    left: 800px;
-    width: 100%;
     height: 72px;
-    padding-left: 10px;
+    left: 10px;
 }
 .dropdown-box{
     float: left;
@@ -1278,7 +1398,6 @@ color: #FF7506;
     background: #FFFFFF;
     cursor: pointer;
 /* Gray/$-gray-100 */
-
     border: 1.5px solid #D4D4D7;
     box-sizing: border-box;
     border-radius: 8px;
@@ -1327,12 +1446,12 @@ color: #FF7506;
 }
 .box{
     display:none;
-    position: relative;
-    top: 25px;
-    float: left;
+    position: absolute;
     width: 100%;
-    height: auto;
+    top: 65px;
+    height: 150px;
     z-index: 5000;
+    overflow-y: scroll;
     /* White */
     /* Pink shadow */
     box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
@@ -1344,7 +1463,7 @@ color: #FF7506;
     top: 2px;
     position: absolute;
     width: 245px;
-    height: 55px;
+    height: 49px;
     z-index: 5;
     background: white;
     box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
@@ -1387,7 +1506,10 @@ cursor: pointer;
    font-weight: 400;
    font-size: 16px;
    line-height: 24px;
-
+   height: 24px;
+   width: auto;
+   text-overflow: ellipsis;
+   overflow:hidden;
 }
 .dropdown-box-calendar p{
     position: relative;
@@ -1424,7 +1546,7 @@ cursor: pointer;
      position: absolute;
      color: #A9A9B0;
      width: auto;
-     height: 50px;
+     height: 32px;
      top: 450;
      
  }
@@ -1432,16 +1554,16 @@ cursor: pointer;
     position: relative; 
  }
  .page-control .page{
-    padding: 16px 16px 16px 16px;
+    padding: 5px 11px 5px 11px;
     
  }
  .page-control .page:hover{
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #FF7506;
     color: white;
  }
  .page-active{
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #FF7506;
     color: white;
     
@@ -1452,7 +1574,7 @@ cursor: pointer;
      color: #A9A9B0;
  }
  #chart {
-     padding-top: 10px;
+     padding-top: 25px;
      position: relative;
     width: 100%;
     margin: 35px auto;
@@ -1467,11 +1589,10 @@ cursor: pointer;
     height: 400px;
 }
 .form-title{
-    position: relative;
-width: 160px;
+position: relative;
+width: auto;
 height: 30px;
-left: 24px;
-top: 16px;
+margin: 12px 16px;
 /* 20/20 Bold */
 font-family: 'Nunito';
 font-style: normal;
@@ -1677,6 +1798,7 @@ line-height: 21px;
 color: #A9A9B0;
 }
 .big-chart-box{
+    z-index: 2000000;
     left: 583px;
     top: 33px;
     position: absolute;
@@ -1748,6 +1870,10 @@ box-sizing: border-box;
     color: blue;
    
 }
+.bd-water{
+    border: 1px solid blue;
+   
+}
 .bg-water{
     background: #b0c9fd;
 }
@@ -1756,6 +1882,9 @@ box-sizing: border-box;
 }
 .bg-jungle{
     background: #acfcc0;
+}
+.bd-jungle{
+    border: 1px solid #35C75A;
 }
 .dot{
     position: absolute;
@@ -1785,6 +1914,10 @@ box-sizing: border-box;
     color: orange;
    
 }
+.bd-orange{
+    border: 1px solid orange;
+   
+}
 .bg-white{
     background: white;
 }
@@ -1795,13 +1928,18 @@ box-sizing: border-box;
     color: red;
     
 }
+.bd-fire{
+    border: 1px solid red;
+    
+}
 .bg-fire{
     background: #ffb4b4;
 }
 .table{
+    position: relative;
     background: transparent;
     border-radius: 10px;
-    width: 1050px;
+    height: 500px;
 }
 .table tbody tr:nth-child(odd)
 {
@@ -1820,14 +1958,16 @@ box-sizing: border-box;
 thead{
     position: relative;
     background-color: #FF9138;
+    user-select: none;
   
 }
 td{
-width: 200px;
+width: auto;
+min-width: 50px;
 position: absolute;
 font-family: 'Nunito';
 font-style: normal;
-height: 60px;
+height: 49px;
 font-weight: 400;
 font-size: 14px;
 line-height: 21px;
@@ -1907,6 +2047,20 @@ background: #FFF2E7;
 /* down */
 box-shadow: 0px 0px 6px #E7E9F2;
 border-radius: 8px 0px 0px 8px;
+}
+.give-add-button{
+    z-index: 1;
+    margin-top: 50px;
+    position: absolute;
+    height: auto;
+    width: 500px;
+    top: 200px;
+}
+.give-add-button a,.give-add-button button{
+  position: relative;
+}
+button {
+    cursor: pointer;
 }
 .add-button i{
     

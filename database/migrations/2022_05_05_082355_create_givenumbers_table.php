@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('diaries', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name', 100);
-            $table->string('ip', 50);
-            $table->string('action', 100);
+        Schema::create('givenumbers', function (Blueprint $table) {
+            $table->id();
+            $table->float('serial')->nullable()->default(123.45);
+            $table->unsignedBigInteger('user_id');
+            $table->string('service_id');
+            $table->string('equipment_id');
+            $table->dateTime('limit_time');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diaries');
+        Schema::dropIfExists('givenumbers');
     }
 };
