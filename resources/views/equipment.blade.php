@@ -8,8 +8,10 @@
     <p>Thêm thiết bị</p>
 </a>
 </div>
-
+    
 <div class="container">
+    <input type="hidden" value="0" id="actionInput">
+    <input type="hidden" value="0" id="connectInput">
     <div class="dropdown-container-main">
         <div class="dropdown-container">
             <p>Trạng thái hoạt động</p>
@@ -42,7 +44,90 @@
         </div>
       
     </div>
-    <script> 
+    
+    <div class="dropdown-container-search">
+        <div class="dropdown-container">
+            <p>Từ khóa</p>
+            <div class="dropdown-box">
+                <input type="text" placeholder="Nhập từ khóa" name="search" id="keyword">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+               <tr>
+                   <th class="bd-radius-topleft10">Mã thiết bị</th>
+                   <th>Tên thiết bị</th>
+                   <th>Địa chỉ IP</th>
+                   <th>Trạng thái hoạt động</th>
+                   <th>Trạng thái kết nối</th>
+                   <th>Dịch vụ sử dụng</th>
+                   <th>&emsp;</th>
+                   <th class="bd-radius-topright10">&emsp;</th>
+               </tr>
+            </thead>
+            <tbody id="listEquip">
+                @foreach ($listEQuip as $items)
+               <tr>
+                 <td>{{ $items->Code  }}</td>
+                 <td>{{ $items->name }}</td>
+                 <td>{{ $items->IP }}</td>
+                 @if ($items->status_active == 1)
+                 <td ><i class="dot dot-jungle"></i><p>Hoạt động</p></td>
+                 @else
+                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
+                 @endif
+                 @if ($items->status_connect == 1)
+                 <td><i class="dot dot-jungle"></i><p>Kết nối</p></td>
+                 @else
+                 <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
+                 @endif
+                 
+                 <td id="see-more"><p class="overflow">{{ $items->service_use }}</p>
+                    <div class="see-more"><p>{{ $items->service_use }}</p></div>
+                </td>
+                 <td><a href="{{ route('equipment.detail',['id' => $items->Code]) }}">Chi tiết</a></td>
+                 <td><a href="{{ route('equipment.update',['id' => $items->Code]) }}">Cập nhật</a></td>
+               </tr>
+               @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div class="page-control" id="list-page">
+        <a href=""><i class="material-icons">keyboard_arrow_left</i></a>
+        <a href="" class="page page-active">1</a>
+        <a href="" class="page">2</a>
+        <a href="" class="page">3</a> ...
+        <a href="" class="page">10</a>
+        <a href=""><i class="material-icons">keyboard_arrow_right</i></a>
+    </div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $(document).on('keyup','#keyword',function(){
+            var keyword = $(this).val();
+            let action = document.getElementById('actionInput').value;
+            let connect = document.getElementById('connectInput').value;
+             $.ajax({
+                 type: "get",
+                 url: "/equipment/search",
+                 data:{
+                     keyword: keyword,
+                     action: action,
+                     connect: connect
+                 },
+                 dataType: "json",
+                 success: function(response){
+                    $("#listEquip").html(response);
+                 }
+             })
+        });
+    });
+</script>
+<script> 
     $(document).ready(function(){
         let flag1 =0;
         let flag2 =0;
@@ -63,6 +148,37 @@
             $("#dropAction p").text($(this).text());
             $('#dropAction i').text('arrow_drop_down');
             flag1 =0;
+            action = document.getElementById('actionInput')
+            if($(this).text() == "Tất cả")
+            {
+                action.value = "0";
+                console.log(action.value);
+            }
+            else if($(this).text() == "Đang hoạt động")
+            {
+                
+                action.value = "1";
+                console.log(action.value);
+            }else 
+            {
+                action.value = "-1";
+                console.log(action.value);
+            }
+            let connect = document.getElementById('connectInput').value;
+            var keyword = $("#keyword").val();
+             $.ajax({
+                 type: "get",
+                 url: "/equipment/search",
+                 data:{
+                     keyword: keyword,
+                     action: action.value,
+                     connect: connect
+                 },
+                 dataType: "json",
+                 success: function(response){
+                    $("#listEquip").html(response);
+                 }
+             })
         });
         $("#dropConnect").click(function(){
             $("#dropConnect-box").toggleClass("block");
@@ -81,104 +197,37 @@
             $("#dropConnect p").text($(this).text());
             $('#dropConnect i').text('arrow_drop_down');
             flag2 =0;
+            connect = document.getElementById('connectInput');
+            if($(this).text() == "Tất cả")
+            {
+                connect.value = "0";
+            }
+            else if($(this).text() == "Kết nối")
+            {
+                
+                connect.value = "1";
+                console.log(connect.value);
+            }else 
+            {
+                connect.value = "-1";
+                console.log(connect.value);
+            }
+            let actionEQ = document.getElementById('actionInput').value;
+            var keyword = $("#keyword").val();
+             $.ajax({
+                 type: "get",
+                 url: "/equipment/search",
+                 data:{
+                     keyword: keyword,
+                     action: actionEQ,
+                     connect: connect.value
+                 },
+                 dataType: "json",
+                 success: function(response){
+                    $("#listEquip").html(response);
+                 }
+             })
         });
     });
     </script>
-    <div class="dropdown-container-search">
-        <div class="dropdown-container">
-            <p>Từ khóa</p>
-            <div class="dropdown-box">
-                <input type="text" placeholder="Nhập từ khóa" name="search">
-                <i class="fas fa-search"></i>
-            </div>
-        </div>
-    </div>
-    <div class="table">
-        <table>
-            <thead>
-               <tr>
-                   <th class="bd-radius-topleft10">Mã thiết bị</th>
-                   <th>Tên thiết bị</th>
-                   <th>Địa chỉ IP</th>
-                   <th>Trạng thái hoạt động</th>
-                   <th>Trạng thái kết nối</th>
-                   <th>Dịch vụ sử dụng</th>
-                   <th>&emsp;</th>
-                   <th class="bd-radius-topright10">&emsp;</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                 <td>KIO_01</td>
-                 <td>Kiosk</td>
-                 <td>127.0.0.0</td>
-                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                 <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                 <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                    <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-                </td>
-                 <td><a href="{{ route('equipment.detail',['id' => 1]) }}">Chi tiết</a></td>
-                 <td><a href="{{ route('equipment.update',['id' => 1]) }}">Cập nhật</a></td>
-               </tr>
-               <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>127.0.0.0</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>127.0.0.0</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>127.0.0.0</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>127.0.0.0</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><i class="dot dot-fire"></i><p>Mất kết nối</p></td>
-                <td id="see-more"><p class="overflow">khám tim mạch, khám mắt,khám mũi, khám miệng</p>
-                   <div class="see-more"><p>khám tim mạch, khám mắt, khám mũi, khám miệng</p></div>
-               </td>
-                <td><a href="#">Chi tiết</a></td>
-                <td><a href="#">Cập nhật</a></td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="page-control">
-        <a href=""><i class="material-icons">keyboard_arrow_left</i></a>
-        <a href="" class="page page-active">1</a>
-        <a href="" class="page">2</a>
-        <a href="" class="page">3</a> ...
-        <a href="" class="page">10</a>
-        <a href=""><i class="material-icons">keyboard_arrow_right</i></a>
-    </div>
-</div>
-</div>
 @endsection

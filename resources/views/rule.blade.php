@@ -33,44 +33,14 @@
                </tr>
             </thead>
             <tbody>
+              @foreach ($listRoles as $items)
                <tr>
-                 <td>Kế toán</td>
-                 <td>6</td>
-                 <td>Tính toán tiền lương, thuế, số liệu vào, số liệu ra</td>
-                 <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
+                 <td>{{ $items->name }}</td>
+                 <td>5</td>
+                 <td>{{ $items->description }}</td>
+                 <td><a href="{{ route('givenumber.update',['id' => $items->id]) }}">Cập nhật</a></td>
                </tr>
-               <tr>
-                <td>Kế toán</td>
-                <td>6</td>
-                <td>Tính toán tiền lương, thuế, số liệu vào, số liệu ra</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>Kế toán</td>
-                <td>6</td>
-                <td>Tính toán tiền lương, thuế, số liệu vào, số liệu ra</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>Kế toán</td>
-                <td>6</td>
-                <td>Tính toán tiền lương, thuế, số liệu vào, số liệu ra</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>Kế toán</td>
-                <td>6</td>
-                <td>Tính toán tiền lương, thuế, số liệu vào, số liệu ra</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>Kế toán</td>
-                <td>6</td>
-                <td>Tính toán tiền lương, thuế, số liệu vào, số liệu ra</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-             
-              
+               @endforeach
             </tbody>
         </table>
     </div>

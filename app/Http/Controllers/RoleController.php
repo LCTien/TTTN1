@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\role;
 use App\Http\Requests\StoreroleRequest;
 use App\Http\Requests\UpdateroleRequest;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = DB::table('roles')->get();
+        return view('rule',['listRoles' => $roles,'isInstall'=> true,'isRule' => true]);
     }
 
     /**
