@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('givenumbers', function (Blueprint $table) {
             $table->id();
-            $table->float('serial')->nullable()->default(123.45);
-            $table->unsignedBigInteger('user_id');
+            $table->string('serial')->notnull();
+            $table->string('name');
+            $table->string('phonenumber');
+            $table->string('email');
             $table->string('service_id');
             $table->string('equipment_id');
             $table->dateTime('limit_time');

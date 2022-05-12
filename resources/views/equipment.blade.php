@@ -95,14 +95,18 @@
             </tbody>
         </table>
     </div>
+    @if ($maxPage > 1)
     <div class="page-control" id="list-page">
+        @for ($i = 0; $i< $maxpage; $i++)
         <a href=""><i class="material-icons">keyboard_arrow_left</i></a>
         <a href="" class="page page-active">1</a>
         <a href="" class="page">2</a>
         <a href="" class="page">3</a> ...
         <a href="" class="page">10</a>
         <a href=""><i class="material-icons">keyboard_arrow_right</i></a>
+        @endfor
     </div>
+    @endif
 </div>
 </div>
 <script>

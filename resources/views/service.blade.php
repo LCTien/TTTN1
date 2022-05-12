@@ -100,46 +100,20 @@
                </tr>
             </thead>
             <tbody>
+               @foreach ($listService as $item)
                <tr>
-                 <td>KIO_01</td>
-                 <td>Kiosk</td>
-                 <td>mô tả hoạt động 1</td>
-                 <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                 <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
-                 <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
+                <td>{{ $item->Code }}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->description }}</td>
+                @if ($item->status_active == -1)
+                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
+                @else
+                <td ><i class="dot dot-jungle"></i><p>Hoạt động</p></td>
+                @endif
+                <td><a href="{{ route('service.detail',['id' =>$item->Code]) }}">Chi tiết</a></td>
+                <td><a href="{{ route('service.update',['id' => $item->Code]) }}">Cập nhật</a></td>
                </tr>
-               <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>mô tả hoạt động 1</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>mô tả hoạt động 1</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>mô tả hoạt động 1</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>KIO_01</td>
-                <td>Kiosk</td>
-                <td>mô tả hoạt động 1</td>
-                <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-                <td><a href="{{ route('service.detail',['id' => 1]) }}">Chi tiết</a></td>
-                <td><a href="{{ route('service.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
+               @endforeach
             </tbody>
         </table>
     </div>

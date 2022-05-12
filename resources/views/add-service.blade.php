@@ -5,7 +5,7 @@
 <p class="component-title strong">Quản lý dịch vụ</p>
 <div class="container bg-white h-400">
     <div class="form-title">Thông tin thiết bị</div>
-    <form action="{{ route('add.equipment') }}" class="form-group" method="POST">
+    <form action="{{ route('add.service') }}" class="form-group" method="POST">
         @csrf
         <div class="form-control2">
             <label for="code">Mã dịch vụ: <span class="fire">*</span></label>
@@ -13,7 +13,7 @@
         </div>
         <div class="form-control2 margin-left20">
             <label for="code">Mô tả:</label>
-           <input type="text" style="height: 132px" placeholder="Mô tả dịch vụ">
+           <input type="text" style="height: 132px" placeholder="Mô tả dịch vụ" name ="description">
         </div>
         <div class="form-control2 " style="top: -78px">
             <label for="name">Tên dịch vụ: <span class="fire">*</span></label>
@@ -22,25 +22,25 @@
         <div class="get-number-rule">
             <div class="rule-title">Quy tắc cấp số</div>
             <div class="rule">
-                <input type="checkbox" name="auto-increm" id="auto-increm">
+                <input type="checkbox" name="auto_incre" id="auto-increm">
                 <p>Tự động tăng từ</p>
-                <input type="text" value="0001">
+                <input type="text" value="0001" name="start_value">
                 <span>đến</span>
-                <input type="text" value="9999">
+                <input type="text" value="9999" name="end_value">
             </div>
             <div class="rule">
-                <input type="checkbox" name="auto-increm" id="Prefix">
+                <input type="checkbox" name="prefix" id="Prefix">
                 <p>Prefix</p>
-                <input type="text" value="0001">
+                <input type="text" value="0001" name="prefix_value">
             
             </div>
             <div class="rule">
-                <input type="checkbox" name="auto-increm" id="Surfix">
+                <input type="checkbox" name="surfix" id="Surfix">
                 <p>Surfix</p>
-                <input type="text" value="0001">
+                <input type="text" value="0001" name="surfix_value">
             </div>
             <div class="rule">
-                <input type="checkbox" name="auto-increm" id="reset">
+                <input type="checkbox" name="reset" id="reset">
                 <p>Reset mỗi ngày</p>
             </div>
             <div class="form-control2">
@@ -49,7 +49,7 @@
         </div>
             <div class="form-buttons">
                 <a class="denie-button" href="{{ route('equipment') }}">Hủy bỏ</a>
-                <button type="submit" class="continue-button">Thêm thiết bị</button>
+                <button type="submit" class="continue-button">Thêm dịch vụ</button>
             </div>
         </form>
 </div>

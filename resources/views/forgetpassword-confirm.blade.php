@@ -5,10 +5,14 @@
            <p class="forget-password">Đặt lại mật khẩu mới</p>
            <form action="{{ route('confirm.forgetpassword') }}" class="form" method="post">
             @csrf
-            <label for="account" class="input">Mật khẩu *</label><br>
+            <input type="hidden" name="email" value="{{ $email }}">
+            <label for="password" class="input">Mật khẩu *</label><br>
             <input type="password" name="password" id="account" class="form-control"><br>
-            <label for="password" class="input">Nhập lại mật khẩu *</label><br>
+            <label for="confirmpassword" class="input">Nhập lại mật khẩu *</label><br>
             <input type="password" name="confirmpassword"  class="form-control"><br>
+            @if (isset($error))
+            <p id="error">{{ $error }}</p>
+            @endif
             <button type="submit" class="submit" id="button-login"> <span> Xác Nhận</span></button>
            </form>
     

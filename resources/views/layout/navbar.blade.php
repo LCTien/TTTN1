@@ -11,7 +11,7 @@
         <a href="{{ route('diary') }}" class="installDropdown-items @if (!empty($isDiary)) active-2 @endif">Nhật ký người dùng</a>
     </div>
 </div>
-    <a href="{{ route('login') }}" class="logout"> <i class="fas fa-sign-out-alt"></i> Đăng Xuất</a>
+    <a href="{{ route('logout') }}" class="logout"> <i class="fas fa-sign-out-alt"></i> Đăng Xuất</a>
 </nav>
     <a  class="anoun-bell" href="#"><i class="fas fa-bell"></i>
         <div class="dropbox ">
@@ -62,8 +62,8 @@
             </div>
             
     </div></a>
-    <img class ="img-profile" src="/assets/img/lecongtien.jpg" alt="avatar">
+    <img class ="img-profile" src="/assets/img/{{ Session::get('Avatar') }}" alt="avatar">
     <div class="title-2">
         <p>Xin Chào</p>
-        <a href="{{ route('admin.info') }}">Lê Công Tiến</a>
+        <a href="{{ route('admin.info',['id' => Session::get('UserId')]) }}">Lê Công Tiến</a>
     </div>

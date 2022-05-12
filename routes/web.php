@@ -5,6 +5,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\GivenumberController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,72 +23,63 @@ Route::get('/',function() {
     return view('login');
 })->name('login');
 
-Route::post('/login',function(Request $request) {
-    return view('login',['OK'=>"true"]);
-})->name('confirm.forgetpassword');
+Route::get('/logout',[AccountController::class,'logout'])->name('logout');
+
+Route::post('/login',[AccountController::class,'changePassword'])->name('confirm.forgetpassword');
 
 Route::get('/forgetpassword',function() {
     return view('forgetpassword');
 })->name('forgetpassword');
 
-Route::post('/forgetpassword-confirm',function() {
-    return view('forgetpassword-confirm');
-})->name('forgetpassword.confirm');
+Route::post('/forgetpassword-confirm',[AccountController::class,'forgetpassword'])->name('forgetpassword.confirm');
 
-Route::post('welcome',function(Request $request){
-    if($request->post('account') != "admin" && $request->post('password') !="123456")
-    {
-         return redirect()->route('login',['error' => "Sai tài khoản hoặc mật khẩu"]);
-    }
-    return view('admin-info');
-})->name('welcome');
-Route::get('/admin-info', function () {
-    return view('admin-info');
-})->name('admin.info');
-Route::get('/dashboard', function () {
-    return view('dashboard',['isDashboard' => true]);
-})->name('dashboard');
+Route::post('welcome',[AccountController::class,'login'])->name('welcome');
+
+Route::get('/admin-info/{id}', [AccountController::class,'index'])->name('admin.info');
+
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
 Route::get('/equipment', [EquipmentController::class,'index'])->name('equipment');
 
 Route::get('/equipment/search', [EquipmentController::class,'search']);
 
+Route::get('/listService',[ServiceController::class,'listService']);
 Route::get('/equipment/add', function () {
     return view('add-equipment',['isEquipment' => true]);
 })->name('equipment.add');
-Route::get('/equipment/update/{id}', function () {
-    return view('update-equipment',['isEquipment' => true]);
-})->name('equipment.update');
-Route::get('/equipment/detail/{id}', function () {
-    return view('detail-equipment',['isEquipment' => true]);
-})->name('equipment.detail');
-Route::post('add',function (Request $request) {
-    dd($request);
-    return redirect()->route('equipment');
-})->name('add.equipment');
-Route::get('/service', function () {
-    return view('service',['isService' => true]);
-})->name('service');
+
+Route::get('/equipment/update/{id}', [ EquipmentController::class,'updating'])->name('equipment.update');
+
+Route::get('/equipment/detail/{id}',[ EquipmentController::class,'show'])->name('equipment.detail');
+
+Route::post('add',[ EquipmentController::class,'create'])->name('add.equipment');
+
+Route::post('update',[ EquipmentController::class,'edit'])->name('update.equipment');
+
+Route::get('/service', [ServiceController::class,'index'])->name('service');
+
 Route::get('/service/add', function () {
     return view('add-service',['isService' => true]);
 })->name('service.add');
-Route::get('/service/detail', function () {
-    return view('detail-service',['isService' => true]);
-})->name('service.detail');
-Route::get('/service/update', function () {
-    return view('update-service',['isService' => true]);
-})->name('service.update');
-Route::post('/update-service', function (Request $request) {
-})->name('update.service');
-Route::get('/givenumber',function(){
-    return view('givenumber',['isGivenumber'=> true]);
-})->name('givenumber');
-Route::get('/givenumber/add',function(){
-    return view('add-givenumber',['isGivenumber'=> true]);
-})->name('givenumber.add');
+
+Route::get('/service/detail/{id}',[ServiceController::class,'show'])->name('service.detail');
+
+Route::post('/addService',[ServiceController::class,'create'])->name('add.service');
+
+Route::get('/service/update', [ServiceController::class,'updating'])->name('service.update');
+
+Route::post('/updateService', [ServiceController::class,'update'])->name('update.service');
+
+Route::get('/givenumber',[GivenumberController::class,'index'])->name('givenumber');
+
+Route::get('/givenumber/add',[GivenumberController::class,'creating'])->name('givenumber.add');
+
+Route::get('/givenumber/detail/{stt}',[GivenumberController::class,'detail'])->name('givenumber.detail');
+
 Route::get('/givenumber/update',function(){
     return view('givenumber',['isGivenumber'=> true]);
 })->name('givenumber.update');
+Route::get('/giveNumber',[GivenumberController::class,'create']);
 Route::get('/report',function(){
     return view('report',['isReport'=> true]);
 })->name('report');

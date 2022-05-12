@@ -4,32 +4,30 @@
 <div class="admin-title"><p>Thông tin cá nhân</p></div>
     <div class="content">
         <div class="profile-1">
-            <img src="/assets/img/lecongtien.jpg" alt="avatar" id="avatar">
+            <img src="/assets/img/{{ $user->avatar }}" alt="avatar" id="avatar">
             <a class="profile-1 set-avatar" onclick="openFile()"><i class="fas fa-camera"></i></a>
-            <h1>Lê Công Tiến</h1>
+            <h1>{{ $user->fullname }}</h1>
         </div>
-      
         <div class="profile-2">
             <div class=" profile-2-item">
                 <h4>Tên người dùng:</h4>
-                <p>Lê Công Tiến</p>
+                <p>{{ $user->fullname }}</p>
             </div>
             <div class=" profile-2-item">
                 <h4>Tên đăng nhập:</h4>
-                <p>lecongtien2k1</p>
+                <p>{{ $user->username }}</p>
             </div><div class=" profile-2-item">
                 <h4>Số điện thoại:</h4>
-                <p>3058549***</p>
+                <p>{{ $user->phonenumber }}</p>
             </div><div class=" profile-2-item">
                 <h4>Mật khẩu:</h4>
-                <p>lct21201</p>
+                <p>{{ $user->password }}</p>
             </div><div class=" profile-2-item">
                 <h4>Email:</h4>
-                <p>tienit21201@gmail.com</p>
+                <p>{{ $user->email }}</p>
             </div><div class=" profile-2-item">
                 <h4>Vai trò:</h4>
-                <p>Dev PHP</p>
-            
+                <p>{{ $user->name }}</p>
         </div>
     </div>
     <script>

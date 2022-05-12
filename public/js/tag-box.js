@@ -17,6 +17,7 @@ function createTag(){
         let liTag = ` <li> ${tag} <i class="material-icons" onclick="remove(this,'${tag}')">close</i></li>`;
         ul.insertAdjacentHTML("afterbegin",liTag);
     });
+    $("#listService").removeClass("block");
 }
 function remove(element, tag)
 {  
@@ -34,8 +35,12 @@ function remove(element, tag)
     service.value = service.value.replace(`, ${tag}`,'');
 
 }
+$("*").click(function(){
+    $("#listService").removeClass("block");
+});
 function addTag(e)
 {
+    $("#listService").addClass("block");
     if(e.key == "Enter")
     {
         let tag = e.target.value.replace(/\s+/g,' ');
@@ -52,5 +57,29 @@ function addTag(e)
         }
         e.target.value= "";
     }
+    $.ajax({
+        type: "get",
+        url: "/listService",
+        data:{
+            service: e.target.value,
+        },
+        dataType: "json",
+        success: function(response){
+           $("#listService").html(response);
+        }
+    })
+}
+function addTag2(key)
+{
+    if(!tags.includes(key)){
+            tags.push(key);
+            createTag();
+            if(service.value == "")
+                service.value += `${key}`;
+            else
+                service.value += `, ${key}`;
+            input.value ="";
+    }
 }
 input.addEventListener("keyup",addTag);
+

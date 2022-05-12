@@ -20,8 +20,9 @@
             <div class="box" id="dropServiceName-box">
                 <ul>
                     <li  class="box-items box-active">Tất cả</li>
-                    <li  class="box-items ">Đang hoạt động</li>
-                    <li  class="box-items ">Ngưng hoạt động</li>
+                    @foreach ($services as $item)
+                    <li  class="box-items ">{{ $item->name }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -34,9 +35,9 @@
             <div class="box" id="dropStatus-box">
                 <ul>
                     <li  class="box-items box-active">Tất cả</li>
-                    <li  class="box-items ">Đang hoạt động</li>
-                    <li  class="box-items ">Ngưng hoạt động</li>
-
+                    <li  class="box-items ">Đang chờ</li>
+                    <li  class="box-items ">Đã sử dụng</li>
+                    <li  class="box-items ">Đã bỏ qua</li>
                 </ul>
             </div>
         </div>
@@ -49,9 +50,9 @@
             <div class="box" id="dropSource-box">
                 <ul>
                     <li  class="box-items box-active">Tất cả</li>
-                    <li  class="box-items ">Đang hoạt động</li>
-                    <li  class="box-items ">Ngưng hoạt động</li>
-
+                    @foreach ($equip as $item)
+                    <li  class="box-items ">{{ $item->name }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -163,67 +164,24 @@
                </tr>
             </thead>
             <tbody>
+                @foreach ($serial as $item)
                <tr>
-                 <td>2010001</td>
-                 <td>Lê Công Tiến</td>
-                 <td>Khám tim mạch</td>
-                 <td >17:25 - 29/4/2022</td>
-                 <td>14:25 - 29/4/2022</td>
+                 <td>{{ $item->serial }}</td>
+                 <td>{{ $item->name }}</td>
+                 <td>{{ $item->service_name }}</td>
+                 <td >{{ $item->created_at }}</td>
+                 <td>{{ $item->limit_time }}</td>
+                 @if($item->status == -1)
+                 <td ><i class="dot dot-fire"></i><p>Đã bỏ qua</p></td>
+                 @elseif ($item->status == 0)
                  <td ><i class="dot dot-water"></i><p>Đang chờ</p></td>
+                 @elseif ($item->status == 1)
+                 <td ><i class="dot dot-jungle"></i><p>Đã sử dụng</p></td>
+                 @endif
                  <td>Kiosk</td>
-                 <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Chi tiết</a></td>
+                 <td><a href="{{ route('givenumber.detail',['stt' => $item->serial]) }}">Chi tiết</a></td>
                </tr>
-               <tr>
-                <td>2010001</td>
-                <td>Lê Công Tiến</td>
-                <td>Khám tim mạch</td>
-                <td >17:25 - 29/4/2022</td>
-                <td>14:25 - 29/4/2022</td>
-                <td ><i class="dot dot-water"></i><p>Đang chờ</p></td>
-                <td>Kiosk</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>2010001</td>
-                <td>Lê Công Tiến</td>
-                <td>Khám tim mạch</td>
-                <td >17:25 - 29/4/2022</td>
-                <td>14:25 - 29/4/2022</td>
-                <td ><i class="dot dot-water"></i><p>Đang chờ</p></td>
-                <td>Kiosk</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>2010001</td>
-                <td>Lê Công Tiến</td>
-                <td>Khám tim mạch</td>
-                <td >17:25 - 29/4/2022</td>
-                <td>14:25 - 29/4/2022</td>
-                <td ><i class="dot dot-water"></i><p>Đang chờ</p></td>
-                <td>Kiosk</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>2010001</td>
-                <td>Lê Công Tiến</td>
-                <td>Khám tim mạch</td>
-                <td >17:25 - 29/4/2022</td>
-                <td>14:25 - 29/4/2022</td>
-                <td ><i class="dot dot-water"></i><p>Đang chờ</p></td>
-                <td>Kiosk</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              <tr>
-                <td>2010001</td>
-                <td>Lê Công Tiến</td>
-                <td>Khám tim mạch</td>
-                <td >17:25 - 29/4/2022</td>
-                <td>14:25 - 29/4/2022</td>
-                <td ><i class="dot dot-water"></i><p>Đang chờ</p></td>
-                <td>Kiosk</td>
-                <td><a href="{{ route('givenumber.update',['id' => 1]) }}">Cập nhật</a></td>
-              </tr>
-              
+               @endforeach
             </tbody>
         </table>
     </div>

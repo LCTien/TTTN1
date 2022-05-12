@@ -7,7 +7,7 @@ use App\Http\Requests\StoreEquipmentRequest;
 use App\Http\Requests\UpdateEquipmentRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class EquipmentController extends Controller
 {
     /**
@@ -17,8 +17,9 @@ class EquipmentController extends Controller
      */
     public function index()
     {
-        $eq = DB::table('equipments')->get();
-        return view('equipment',['isEquipment' => true,'listEQuip' => $eq]);
+        $eq = DB::table('equipments')->limit(6)->offset(0)->get();
+        $quantity_page = ceil(count($eq) / 6);
+        return view('equipment',['maxPage' => $quantity_page,'isEquipment' => true,'listEQuip' => $eq]);
     }
     public function search(Request $request){
         $output ='';
@@ -72,9 +73,10 @@ class EquipmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $create = DB::insert('insert into equipments (Code, name,IP, service_use, login_name, password, equipment_type_id, created_at) values (?, ?, ?, ?, ?, ?, ?, ?)', [$request->code,$request->name,$request->ip_address,$request->service,$request->username,$request->password,$request->type,Carbon::now('Asia/Ho_Chi_Minh')]);
+        return redirect()->route('equipment',['isEquipment' => true]);
     }
 
     /**
@@ -94,9 +96,24 @@ class EquipmentController extends Controller
      * @param  \App\Models\Equipment  $equipment
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipment $equipment)
+    public function show($id)
     {
-        //
+        $equipment = DB::table('equipments')
+        ->join('equipment_types','equipment_types.id','=','equipments.equipment_type_id')
+        ->select('equipments.*','equipment_types.name as type_name')
+        ->where('Code','=',$id)
+        ->get();
+        return view('detail-equipment',['isEquipment' => true,'detail'=>$equipment]);
+    }
+    public function updating($id)
+    {
+        $equipment = DB::table('equipments')
+        ->join('equipment_types','equipment_types.id','=','equipments.equipment_type_id')
+        ->select('equipments.*','equipment_types.name as type_name','equipment_types.id as type_id')
+        ->where('Code','=',$id)
+        ->get();
+        $listTypes = DB::table('equipment_types')->get();
+        return view('update-equipment',['isEquipment' => true,'detail'=>$equipment,'listType'=>$listTypes]);
     }
 
     /**
@@ -105,9 +122,10 @@ class EquipmentController extends Controller
      * @param  \App\Models\Equipment  $equipment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Equipment $equipment)
+    public function edit(Request $request)
     {
-        //
+        $equipment = DB::update('update equipments set Code = ?, name = ?, IP = ?, service_use = ?, login_name = ?, password = ?, equipment_type_id = ?, updated_at = ?  where Code = ?', [$request->code,$request->name,$request->ip_address,$request->service,$request->username,$request->password,$request->type,Carbon::now('Asia/Ho_Chi_Minh'),$request->oldCode]);
+        return redirect()->route('equipment');
     }
 
     /**

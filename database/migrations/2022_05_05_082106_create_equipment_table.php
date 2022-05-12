@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('IP', 100);
             $table->string('service_use',1000);
+            $table->string('login_name');
+            $table->string('password');
+            $table->unsignedBigInteger('equipment_type_id');
             $table->integer('status_active');
             $table->integer('status_connect');
             $table->timestamps();

@@ -6,13 +6,23 @@
 <div class="container">
   <div class="container-component-1"> 
     <div class="form-title">Thông tin thiết bị</div>
-    <div class="container-component-1-content"><span>Mã dịch vụ:</span><p>201</p></div>
-    <div class="container-component-1-content"><span>Tên dịch vụ:</span><p>Khám tim mạch</p></div>
-    <div class="container-component-1-content"><span>Mô tả:</span><p>Chuyên về các bệnh tim </p></div>
+    <div class="container-component-1-content"><span>Mã dịch vụ:</span><p>{{ $service[0]->Code }}</p></div>
+    <div class="container-component-1-content"><span>Tên dịch vụ:</span><p>{{ $service[0]->name }}</p></div>
+    <div class="container-component-1-content"><span>Mô tả:</span><p>{{ $service[0]->description }} </p></div>
     <div class="form-title">Quy tắc cấp số</div>
-    <div class="container-component-1-content"><span>Tăng tự động: </span><p>từ 1 đến 9999</p></div>
-    <div class="container-component-1-content"><span>Prefix: </span><p>0001</p></div>
+    @if ($service[0]->auto_incre != "")
+    <div class="container-component-1-content"><span>Tăng tự động: </span><p>{{ $service[0]->auto_incre }}</p></div>
+    @endif
+    @if ($service[0]->prefix != "")
+    <div class="container-component-1-content"><span>Prefix: </span><p>{{ $service[0]->prefix }}</p></div>
+    @endif
+    @if ($service[0]->surfix != "")
+    <div class="container-component-1-content"><span>Surfix: </span><p>{{ $service[0]->surfix }}</p></div>
+    @endif
+    @if ($service[0]->reset_everyday == 1)
     <div class="container-component-1-content"><span>Reset hằng ngày</span></div>
+    @endif
+    
   </div>
   <div class="container-component-2">
     <div class="dropdown-container-main">
@@ -92,26 +102,26 @@ $(document).ready(function(){
            </tr>
         </thead>
         <tbody>
-           <tr>
-             <td>201</td>
-             <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-           </tr>
-           <tr>
-            <td>201</td>
-            <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-          </tr>
-          <tr>
-            <td>201</td>
-            <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-          </tr>
-          <tr>
-            <td>201</td>
-            <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-          </tr>
-          <tr>
-            <td>201</td>
-            <td ><i class="dot dot-fire"></i><p>Ngưng hoạt động</p></td>
-          </tr>
+            @if(!empty($listNumber))
+                @foreach ($listNumber as $item)
+                <tr>
+                    <td>{{ $item->serial }}</td>
+                    @if ($item->status == -1)
+                    <td ><i class="dot dot-fire"></i><p>Đã bỏ qua</p></td> 
+                    @elseif ($item->status == 0)
+                    <td ><i class="dot dot-water"></i><p>Đang chờ</p></td> 
+                    @elseif ($item->status == 1)
+                    <td ><i class="dot dot-jungle"></i><p>Đã sử dụng</p></td> 
+                    @endif
+                </tr>
+                @endforeach
+            @endif
+            @if(count($listNumber) == 0)
+            <tr>
+                <td >Không có số nào được cấp với dịch vụ này!</td>
+            </tr>
+        @endif
+           
         </tbody>
     </table>
 </div>

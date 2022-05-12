@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('givenumbers', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('accounts');
             $table->foreign('service_id')->references('Code')->on('services');
             $table->foreign('equipment_id')->references('Code')->on('equipments');
         });
         Schema::table('accounts', function (Blueprint $table) {
             $table->foreign('role_id')->references('id')->on('roles');
+        });
+        Schema::table('equipments', function (Blueprint $table) {
+            $table->foreign('equipment_type_id')->references('id')->on('equipment_types');
            
         });
     }

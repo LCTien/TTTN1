@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Http\Requests\StoreAccountRequest;
 use App\Http\Requests\UpdateAccountRequest;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 class AccountController extends Controller
 {
     /**
@@ -13,9 +15,59 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+       $user = DB::table('accounts')
+       ->join('roles','roles.id','=','accounts.role_id')
+       ->where('accounts.id','=',$id)
+       ->select('accounts.*','roles.name')
+       ->get();
+       return view('admin-info',['user' => $user[0]]);
+    }
+    public function login(Request $request)
+    {
+        $user = DB::table('accounts')
+        ->where('username','=',$request->post('account'))
+
+        ->get();
+        if(count($user) == 0 || $request->post('password') != $user[0]->password )
+    {
+         return redirect()->route('login',['error' => "Sai tài khoản hoặc mật khẩu"]);
+    }
+    Session::put('UserId',$user[0]->id);
+    Session::put('Avatar',$user[0]->avatar);
+    return redirect()->route('admin.info',['id' => $user[0]->id]);  
+    }
+    public function logout(Request $request)
+    {
+
+    Session::forget('UserId');
+    Session::forget('Avatar');
+    return redirect()->route('login');
+    }
+    public function forgetpassword(Request $request)
+    {
+        $email = $request->email;
+        $account = DB::table('accounts')->where('email','=',$email)->get();
+        if(count($account)>0){
+            return view('forgetpassword-confirm',['email'=>$email]);
+        }
+        else
+            return view('forgetpassword',['error'=>"Không tồn tại email này!"]);
+    }
+    public function changePassword(Request $request){
+        $email = $request->email;
+        $password = $request->password;
+        $confirmpassword = $request->confirmpassword;
+        if($password != $confirmpassword)
+        {
+            return view('forgetpassword-confirm',['email'=>$email,'error'=>"Mật khẩu nhập lại không đúng!"]);
+        }
+        else
+        {
+            DB::update('update accounts set password = ? where email = ?', [$password,$email]);
+            return view('login',['OK'=>"true"]);
+        }
     }
     /**
      * Show the form for creating a new resource.
